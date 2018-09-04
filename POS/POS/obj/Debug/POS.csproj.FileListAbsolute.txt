@@ -1,0 +1,9 @@
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\bin\Debug\POS.exe.config
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\bin\Debug\POS.exe
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\bin\Debug\POS.pdb
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.csprojResolveAssemblyReference.cache
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.Form1.resources
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.Properties.Resources.resources
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.csproj.GenerateResource.Cache
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.exe
+c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.pdb
