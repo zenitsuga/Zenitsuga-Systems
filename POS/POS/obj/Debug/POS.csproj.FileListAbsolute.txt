@@ -7,3 +7,14 @@ c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.Proper
 c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.csproj.GenerateResource.Cache
 c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.exe
 c:\users\king\documents\visual studio 2013\Projects\POS\POS\obj\Debug\POS.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\bin\Debug\Resources\Settings.ini
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\bin\Debug\POS.exe.config
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\bin\Debug\POS.exe
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\bin\Debug\POS.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\obj\Debug\POS.Form1.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\obj\Debug\POS.frmConfigSettings.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\obj\Debug\POS.GetRecords.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\obj\Debug\POS.Properties.Resources.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\obj\Debug\POS.csproj.GenerateResource.Cache
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\obj\Debug\POS.exe
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\POS\POS\obj\Debug\POS.pdb
