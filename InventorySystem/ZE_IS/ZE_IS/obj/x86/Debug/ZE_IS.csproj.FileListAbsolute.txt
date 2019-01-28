@@ -1,7 +1,0 @@
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ZE_IS\ZE_IS\bin\Debug\ZE_IS.exe
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ZE_IS\ZE_IS\bin\Debug\ZE_IS.pdb
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ZE_IS\ZE_IS\obj\x86\Debug\ZE_IS.Form1.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ZE_IS\ZE_IS\obj\x86\Debug\ZE_IS.Properties.Resources.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ZE_IS\ZE_IS\obj\x86\Debug\ZE_IS.csproj.GenerateResource.Cache
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ZE_IS\ZE_IS\obj\x86\Debug\ZE_IS.exe
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ZE_IS\ZE_IS\obj\x86\Debug\ZE_IS.pdb
