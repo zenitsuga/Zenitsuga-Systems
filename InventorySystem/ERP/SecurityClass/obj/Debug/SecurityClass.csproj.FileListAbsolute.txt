@@ -2,3 +2,7 @@ E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\b
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\bin\Debug\SecurityClass.pdb
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\obj\Debug\SecurityClass.dll
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\obj\Debug\SecurityClass.pdb
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\bin\Debug\SecurityClass.dll
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\bin\Debug\SecurityClass.pdb
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\obj\Debug\SecurityClass.dll
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\obj\Debug\SecurityClass.pdb

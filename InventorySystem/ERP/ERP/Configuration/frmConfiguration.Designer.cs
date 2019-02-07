@@ -31,12 +31,18 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tbActivation = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbMacID = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbLicense = new System.Windows.Forms.TextBox();
             this.tbCompanyName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblDBStatus = new System.Windows.Forms.Label();
+            this.pbDatabaseImage = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.tbDBPassword = new System.Windows.Forms.TextBox();
             this.tbDBUsername = new System.Windows.Forms.TextBox();
@@ -52,19 +58,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pbSettings = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.tbMacID = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tbActivation = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.pbDatabaseImage = new System.Windows.Forms.PictureBox();
-            this.lblDBStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDatabaseImage)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDatabaseImage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -107,6 +107,41 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Systems";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tbActivation
+            // 
+            this.tbActivation.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbActivation.Location = new System.Drawing.Point(108, 84);
+            this.tbActivation.Name = "tbActivation";
+            this.tbActivation.Size = new System.Drawing.Size(361, 20);
+            this.tbActivation.TabIndex = 8;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 89);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 13);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Activation Code:";
+            // 
+            // tbMacID
+            // 
+            this.tbMacID.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbMacID.Location = new System.Drawing.Point(108, 58);
+            this.tbMacID.Name = "tbMacID";
+            this.tbMacID.ReadOnly = true;
+            this.tbMacID.Size = new System.Drawing.Size(361, 20);
+            this.tbMacID.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 63);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Mac ID:";
             // 
             // label5
             // 
@@ -172,6 +207,24 @@
             this.tabPage2.Text = "Database";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lblDBStatus
+            // 
+            this.lblDBStatus.Location = new System.Drawing.Point(5, 127);
+            this.lblDBStatus.Name = "lblDBStatus";
+            this.lblDBStatus.Size = new System.Drawing.Size(135, 13);
+            this.lblDBStatus.TabIndex = 13;
+            this.lblDBStatus.Text = "[Status]";
+            this.lblDBStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbDatabaseImage
+            // 
+            this.pbDatabaseImage.Location = new System.Drawing.Point(6, 8);
+            this.pbDatabaseImage.Name = "pbDatabaseImage";
+            this.pbDatabaseImage.Size = new System.Drawing.Size(134, 115);
+            this.pbDatabaseImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDatabaseImage.TabIndex = 4;
+            this.pbDatabaseImage.TabStop = false;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(224, 114);
@@ -180,6 +233,7 @@
             this.button1.TabIndex = 12;
             this.button1.Text = "&Test Connection";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // tbDBPassword
             // 
@@ -306,59 +360,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // tbMacID
-            // 
-            this.tbMacID.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tbMacID.Location = new System.Drawing.Point(108, 58);
-            this.tbMacID.Name = "tbMacID";
-            this.tbMacID.ReadOnly = true;
-            this.tbMacID.Size = new System.Drawing.Size(361, 20);
-            this.tbMacID.TabIndex = 6;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(17, 63);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 13);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Mac ID:";
-            // 
-            // tbActivation
-            // 
-            this.tbActivation.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.tbActivation.Location = new System.Drawing.Point(108, 84);
-            this.tbActivation.Name = "tbActivation";
-            this.tbActivation.Size = new System.Drawing.Size(361, 20);
-            this.tbActivation.TabIndex = 8;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(17, 89);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 13);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Activation Code:";
-            // 
-            // pbDatabaseImage
-            // 
-            this.pbDatabaseImage.Location = new System.Drawing.Point(6, 8);
-            this.pbDatabaseImage.Name = "pbDatabaseImage";
-            this.pbDatabaseImage.Size = new System.Drawing.Size(134, 115);
-            this.pbDatabaseImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbDatabaseImage.TabIndex = 4;
-            this.pbDatabaseImage.TabStop = false;
-            // 
-            // lblDBStatus
-            // 
-            this.lblDBStatus.Location = new System.Drawing.Point(5, 127);
-            this.lblDBStatus.Name = "lblDBStatus";
-            this.lblDBStatus.Size = new System.Drawing.Size(135, 13);
-            this.lblDBStatus.TabIndex = 13;
-            this.lblDBStatus.Text = "[Status]";
-            this.lblDBStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // frmConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,10 +379,10 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDatabaseImage)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDatabaseImage)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -61,6 +61,24 @@ namespace ERP.Configuration
             }
         }
 
+        private void CheckDatabaseConnection()
+        {
+            if (!cv.TestDatabaseConnection(tbServerName.Text, tbDatabasename.Text, tbDBUsername.Text, tbDBPassword.Text))
+            {
+                MessageBox.Show("Error: Cannot connecto to database. Please check your settings.", "Failed to connect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                lblDBStatus.Text = "DISCONNECTED";
+                lblDBStatus.ForeColor = Color.Red;
+                pbDatabaseImage.Image = Image.FromFile(Environment.CurrentDirectory + "\\Resources\\dbnotconnect.jpg");
+                return;
+            }
+            else
+            {
+                lblDBStatus.Text = "CONNECTED";
+                lblDBStatus.ForeColor = Color.Black;
+                pbDatabaseImage.Image = Image.FromFile(Environment.CurrentDirectory + "\\Resources\\dbconnect.jpg");
+            }
+        }
+
         private void LoadSetting()
         {
             pbSettings.Image = Image.FromFile(Environment.CurrentDirectory + "\\Resources\\settings.jpg");
@@ -97,7 +115,7 @@ namespace ERP.Configuration
             cv = new clsValidation();
             LoadINI();
             LoadSetting();
-            CheckDatabase();
+            CheckDatabaseConnection();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -126,8 +144,13 @@ namespace ERP.Configuration
         {
             if (tabControl1.SelectedTab.Text == "Database")
             {
-                CheckDatabase();
+                CheckDatabaseConnection();
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            CheckDatabaseConnection();
         }
     }
 }

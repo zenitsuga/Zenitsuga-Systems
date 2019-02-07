@@ -2,12 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MySql.Data.MySqlClient;
 
 namespace ERP.ClassFile
 {
     public class clsValidation
     {
         SecurityClass.Security sec = new SecurityClass.Security();
+        public string ConnectionString(string Servername,string Databasename,string Username,string Password)
+        {
+            string result = string.Empty;
+            try
+            {
+                result = "Server = "+ Servername +"; Database = "+ Databasename +"; Uid = "+ Username +"; Pwd = "+ Password + "";
+            }
+            catch
+            {
+            }
+            return result;
+        }
+        public bool TestDatabaseConnection(string Servername,string Databasename, string Username, string Password)
+        {
+            bool result = false;
+            try
+            {
+                MySqlConnection con = new MySqlConnection(ConnectionString(Servername,Databasename,Username,Password));
+                con.Open();
+                result = true;
+            }
+            catch
+            {
+            }
+            return result;
+        }
         public void SaveIni(string Key,string Val,String Section)
         {
             try
