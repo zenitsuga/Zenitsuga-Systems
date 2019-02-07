@@ -62,18 +62,23 @@ namespace ERP
 
         private void tmrLoading_Tick(object sender, EventArgs e)
         {
-            counterLogin += 10;
-            progressBar1.Value = counterLogin;
-            if (counterLogin == 10)
+            if (progressBar1.Value < 100)
             {
-                CheckConfigFile();
-            }
-            LoadImageSplash();
-            if (counterLogin == 100)
-            {
-                LoadSettings(true);
-                tmrLoading.Stop();
-                tbUsername.Focus();
+                counterLogin += 10;
+                progressBar1.Value = counterLogin;
+                if (counterLogin == 10)
+                {
+                    CheckConfigFile();
+                }
+                LoadImageSplash();
+                if (counterLogin == 100)
+                {
+                    LoadSettings(true);
+                    tmrLoading.Stop();
+                    tbUsername.Focus();
+                    progressBar1.Value = 100;
+                    tmrLoading.Enabled = false;
+                }
             }
         }
 

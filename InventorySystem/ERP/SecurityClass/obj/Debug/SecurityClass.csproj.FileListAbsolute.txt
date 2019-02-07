@@ -1,0 +1,4 @@
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\bin\Debug\SecurityClass.dll
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\bin\Debug\SecurityClass.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\obj\Debug\SecurityClass.dll
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\SecurityClass\obj\Debug\SecurityClass.pdb

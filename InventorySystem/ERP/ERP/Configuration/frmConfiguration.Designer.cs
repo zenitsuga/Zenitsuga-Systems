@@ -31,33 +31,40 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pbSettings = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.tbLicense = new System.Windows.Forms.TextBox();
+            this.tbCompanyName = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tbDBPassword = new System.Windows.Forms.TextBox();
+            this.tbDBUsername = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbDatabasename = new System.Windows.Forms.TextBox();
+            this.tbServerName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pbSettings = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.tbMacID = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbActivation = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pbDatabaseImage = new System.Windows.Forms.PictureBox();
+            this.lblDBStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDatabaseImage)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -80,12 +87,17 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(483, 177);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.tbActivation);
+            this.tabPage1.Controls.Add(this.label11);
+            this.tabPage1.Controls.Add(this.tbMacID);
+            this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.tbLicense);
+            this.tabPage1.Controls.Add(this.tbCompanyName);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -96,15 +108,60 @@
             this.tabPage1.Text = "Systems";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Red;
+            this.label5.Location = new System.Drawing.Point(105, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(170, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Error: License not match or invalid.";
+            this.label5.Visible = false;
+            // 
+            // tbLicense
+            // 
+            this.tbLicense.Location = new System.Drawing.Point(108, 32);
+            this.tbLicense.Name = "tbLicense";
+            this.tbLicense.Size = new System.Drawing.Size(361, 20);
+            this.tbLicense.TabIndex = 3;
+            // 
+            // tbCompanyName
+            // 
+            this.tbCompanyName.Location = new System.Drawing.Point(108, 6);
+            this.tbCompanyName.Name = "tbCompanyName";
+            this.tbCompanyName.Size = new System.Drawing.Size(361, 20);
+            this.tbCompanyName.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "License:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Company Name:";
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblDBStatus);
+            this.tabPage2.Controls.Add(this.pbDatabaseImage);
             this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.textBox5);
-            this.tabPage2.Controls.Add(this.textBox6);
+            this.tabPage2.Controls.Add(this.tbDBPassword);
+            this.tabPage2.Controls.Add(this.tbDBUsername);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label9);
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.tbDatabasename);
+            this.tabPage2.Controls.Add(this.tbServerName);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -114,6 +171,80 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Database";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(224, 114);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "&Test Connection";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // tbDBPassword
+            // 
+            this.tbDBPassword.Location = new System.Drawing.Point(224, 88);
+            this.tbDBPassword.Name = "tbDBPassword";
+            this.tbDBPassword.PasswordChar = '*';
+            this.tbDBPassword.Size = new System.Drawing.Size(243, 20);
+            this.tbDBPassword.TabIndex = 11;
+            // 
+            // tbDBUsername
+            // 
+            this.tbDBUsername.Location = new System.Drawing.Point(224, 62);
+            this.tbDBUsername.Name = "tbDBUsername";
+            this.tbDBUsername.Size = new System.Drawing.Size(243, 20);
+            this.tbDBUsername.TabIndex = 10;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(146, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Password:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(146, 65);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(58, 13);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Username:";
+            // 
+            // tbDatabasename
+            // 
+            this.tbDatabasename.Location = new System.Drawing.Point(224, 38);
+            this.tbDatabasename.Name = "tbDatabasename";
+            this.tbDatabasename.Size = new System.Drawing.Size(243, 20);
+            this.tbDatabasename.TabIndex = 7;
+            // 
+            // tbServerName
+            // 
+            this.tbServerName.Location = new System.Drawing.Point(224, 12);
+            this.tbServerName.Name = "tbServerName";
+            this.tbServerName.Size = new System.Drawing.Size(243, 20);
+            this.tbServerName.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(146, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Database:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(146, 15);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Server Name:";
             // 
             // btnSave
             // 
@@ -137,14 +268,14 @@
             this.panel1.Size = new System.Drawing.Size(499, 47);
             this.panel1.TabIndex = 2;
             // 
-            // pbSettings
+            // label2
             // 
-            this.pbSettings.Location = new System.Drawing.Point(3, 3);
-            this.pbSettings.Name = "pbSettings";
-            this.pbSettings.Size = new System.Drawing.Size(45, 41);
-            this.pbSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbSettings.TabIndex = 2;
-            this.pbSettings.TabStop = false;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(54, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(197, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Set-up configuration for system workflow";
             // 
             // label1
             // 
@@ -156,131 +287,14 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Configuration";
             // 
-            // label2
+            // pbSettings
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 25);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Set-up configuration for system workflow";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Company Name:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 37);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "License:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(108, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(361, 20);
-            this.textBox1.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(108, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(361, 20);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(105, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(170, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Error: License not match or invalid.";
-            this.label5.Visible = false;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(106, 38);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(361, 20);
-            this.textBox3.TabIndex = 7;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(106, 12);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(361, 20);
-            this.textBox4.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Database:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 13);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Server Name:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(106, 88);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.PasswordChar = '*';
-            this.textBox5.Size = new System.Drawing.Size(361, 20);
-            this.textBox5.TabIndex = 11;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(106, 62);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(361, 20);
-            this.textBox6.TabIndex = 10;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 93);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Password:";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 66);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(58, 13);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Username:";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(106, 116);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "&Test Connection";
-            this.button1.UseVisualStyleBackColor = true;
+            this.pbSettings.Location = new System.Drawing.Point(3, 3);
+            this.pbSettings.Name = "pbSettings";
+            this.pbSettings.Size = new System.Drawing.Size(45, 41);
+            this.pbSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbSettings.TabIndex = 2;
+            this.pbSettings.TabStop = false;
             // 
             // button2
             // 
@@ -291,6 +305,59 @@
             this.button2.Text = "&Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tbMacID
+            // 
+            this.tbMacID.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbMacID.Location = new System.Drawing.Point(108, 58);
+            this.tbMacID.Name = "tbMacID";
+            this.tbMacID.ReadOnly = true;
+            this.tbMacID.Size = new System.Drawing.Size(361, 20);
+            this.tbMacID.TabIndex = 6;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(17, 63);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Mac ID:";
+            // 
+            // tbActivation
+            // 
+            this.tbActivation.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tbActivation.Location = new System.Drawing.Point(108, 84);
+            this.tbActivation.Name = "tbActivation";
+            this.tbActivation.Size = new System.Drawing.Size(361, 20);
+            this.tbActivation.TabIndex = 8;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(17, 89);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 13);
+            this.label11.TabIndex = 7;
+            this.label11.Text = "Activation Code:";
+            // 
+            // pbDatabaseImage
+            // 
+            this.pbDatabaseImage.Location = new System.Drawing.Point(6, 8);
+            this.pbDatabaseImage.Name = "pbDatabaseImage";
+            this.pbDatabaseImage.Size = new System.Drawing.Size(134, 115);
+            this.pbDatabaseImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbDatabaseImage.TabIndex = 4;
+            this.pbDatabaseImage.TabStop = false;
+            // 
+            // lblDBStatus
+            // 
+            this.lblDBStatus.Location = new System.Drawing.Point(5, 127);
+            this.lblDBStatus.Name = "lblDBStatus";
+            this.lblDBStatus.Size = new System.Drawing.Size(135, 13);
+            this.lblDBStatus.TabIndex = 13;
+            this.lblDBStatus.Text = "[Status]";
+            this.lblDBStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmConfiguration
             // 
@@ -314,6 +381,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDatabaseImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -331,18 +399,24 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbLicense;
+        private System.Windows.Forms.TextBox tbCompanyName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox tbDBPassword;
+        private System.Windows.Forms.TextBox tbDBUsername;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbDatabasename;
+        private System.Windows.Forms.TextBox tbServerName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox tbMacID;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbActivation;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pbDatabaseImage;
+        private System.Windows.Forms.Label lblDBStatus;
     }
 }

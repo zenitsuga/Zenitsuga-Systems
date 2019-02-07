@@ -1,0 +1,7 @@
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\bin\Debug\Security.exe
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\bin\Debug\Security.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\SecurityTest.csprojResolveAssemblyReference.cache
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.Properties.Resources.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\SecurityTest.csproj.GenerateResource.Cache
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.exe
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.pdb
