@@ -33,3 +33,10 @@ C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe.licenses
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\MySql.Data.dll
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Telerik.WinControls.dll
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Telerik.WinControls.UI.dll
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\TelerikCommon.dll
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Telerik.WinControls.xml
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Telerik.WinControls.UI.xml
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.MainForm.resources
