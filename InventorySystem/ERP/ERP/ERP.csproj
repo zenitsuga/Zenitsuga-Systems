@@ -67,6 +67,8 @@
       <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R2 2017\Bin40\Telerik.WinControls.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Telerik.WinControls.RadDock, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2007Black, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2017.2.502.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <HintPath>C:\Program Files (x86)\Telerik\UI for WinForms R2 2017\Bin40\Telerik.WinControls.UI.dll</HintPath>
       <Private>True</Private>
@@ -77,6 +79,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Accounting\AccountingSetup.resx">
+      <DependentUpon>AccountingSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\ChartOfAccount\AccountType.resx">
+      <DependentUpon>AccountType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\ChartOfAccount\ChartAccountMasterFile.resx">
+      <DependentUpon>ChartAccountMasterFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Accounting\Company Set-up.resx">
+      <DependentUpon>Company Set-up.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Accounting\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +101,30 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
+    <Compile Include="Accounting\AccountingSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\AccountingSetup.Designer.cs">
+      <DependentUpon>AccountingSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\ChartOfAccount\AccountType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\ChartOfAccount\AccountType.Designer.cs">
+      <DependentUpon>AccountType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\ChartOfAccount\ChartAccountMasterFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\ChartOfAccount\ChartAccountMasterFile.Designer.cs">
+      <DependentUpon>ChartAccountMasterFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Accounting\Company Set-up.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Accounting\Company Set-up.Designer.cs">
+      <DependentUpon>Company Set-up.cs</DependentUpon>
+    </Compile>
     <Compile Include="Accounting\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +177,12 @@
     <Folder Include="Resources\SPLASH\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Accounting\Resources\Add.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Accounting\Resources\CompanySetup.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\dbconnect.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

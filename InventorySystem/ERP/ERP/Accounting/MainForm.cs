@@ -22,6 +22,49 @@ namespace ERP.Accounting
             {
                 e.Cancel = true;
             }
+            else
+            {
+                Environment.Exit(0);
+            }
+        }
+
+        private void radRibbonBarGroup1_Click(object sender, EventArgs e)
+        {
+            Company_Set_up csu = new Company_Set_up();
+            csu.MdiParent = this;
+            csu.StartPosition = FormStartPosition.Manual;
+            csu.Left = 0;
+            csu.Top = 0;
+            csu.Show();
+        }
+
+        private void radRibbonBarGroup2_Click(object sender, EventArgs e)
+        {
+            AccountingSetup asp = new AccountingSetup();
+            asp.MdiParent = this;
+            asp.parent = this;
+            asp.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void SidePanelButton_Click(object sender, EventArgs e)
+        {
+            if (SidePanelButton.Text == ">>")
+            {
+                SidePanelButton.Text = "<<";
+                radSidePanel.Width = 197;
+                SidePanelButton.Left = SidePanelButton.Left + 160; 
+            }
+            else
+            {
+                SidePanelButton.Text = ">>";
+                SidePanelButton.Left = SidePanelButton.Left - 160;
+                radSidePanel.Width = 40;
+            }
         }
     }
 }
