@@ -106,8 +106,9 @@ namespace ERP
             {
                 string SQLSelectSystemInfo = "select Count(*) from tbl_SYSTEM_INFO where isEnabled = 1 and ProgramCode='"+ cv.Crypt(programname) +"' and LicenseCode = '" + cvs.LicenseCode + "' and ActivationCode = '" + cvs.ActivationCode + "'";
                 cdt = new clsDatabaseTransactions();
-                int RowAffected = cdt.SelectData(SQLSelectSystemInfo).Rows.Count;
-
+                DataTable dtResult =cdt.SelectData(SQLSelectSystemInfo); 
+                int RowAffected = dtResult.Rows.Count;
+                RowAffected = RowAffected == 1 ? int.Parse(dtResult.Rows[0][0].ToString()) : 0;
                 if (RowAffected == 0)
                 {
                     string SQLInsertSystemInfo = "Insert into tbl_SYSTEM_INFO(ProgramCode,LicenseCode,ActivationCode)" + " Values ('" + cv.Crypt(programname) + "','" + cvs.LicenseCode + "','" + cvs.ActivationCode + "')";
@@ -147,7 +148,8 @@ namespace ERP
             {
                 if (cv.ShowsCrypt(SystemName).Contains("SYSTEM"))
                 {
-                    result = cv.ShowsCrypt(SystemName); 
+                    result = cv.ShowsCrypt(SystemName);
+                    this.Text = "Welcome to " + result;
                 }
             }
             catch
@@ -237,7 +239,7 @@ namespace ERP
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string ErrMessage = string.Empty;
-            if (!cv.CheckUsers(tbUsername.Text, tbPassword.Text, ref ErrMessage))
+            if (!cv.CheckUsers(tbUsername.Text, tbPassword.Text, ref ErrMessage, programname))
             {
                 MessageBox.Show("Error: " + ErrMessage,"Login Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
@@ -245,6 +247,12 @@ namespace ERP
             if (programname.ToUpper() == "ACCOUNTING SYSTEM")
             {
                 Accounting.MainForm mf = new Accounting.MainForm();
+                mf.Show();
+                this.Hide();
+            }
+            else if (programname.ToUpper() == "CONDOMINIUM SYSTEM")
+            {
+                CONDO.MainForm mf = new CONDO.MainForm();
                 mf.Show();
                 this.Hide();
             }

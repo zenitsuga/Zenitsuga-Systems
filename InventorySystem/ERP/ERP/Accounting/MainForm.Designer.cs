@@ -83,7 +83,7 @@
             // 
             // ribbonTab3
             // 
-            this.ribbonTab3.IsSelected = true;
+            this.ribbonTab3.IsSelected = false;
             this.ribbonTab3.Name = "ribbonTab3";
             this.ribbonTab3.Text = "EMPLOYEE";
             // 
@@ -123,7 +123,7 @@
             // 
             // ribbonTab1
             // 
-            this.ribbonTab1.IsSelected = false;
+            this.ribbonTab1.IsSelected = true;
             this.ribbonTab1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radRibbonBarGroup1,
             this.radRibbonBarGroup2});

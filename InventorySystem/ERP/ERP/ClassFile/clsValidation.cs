@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 
 namespace ERP.ClassFile
 {
@@ -92,7 +93,26 @@ namespace ERP.ClassFile
             }
             return cvResult;
         }
-        
+        public bool CheckChildFormOpen(string FormName)
+        {
+            bool result = false;
+            try
+            {
+                FormCollection fc = Application.OpenForms;
+
+                foreach (Form frm in fc)
+                {
+                    if (frm.Name == FormName)
+                    {
+                        result = true;
+                    }
+                }
+            }
+            catch
+            {
+            }
+            return result;
+        }
         public string Crypt(string Value)
         {
             string Result = string.Empty;
@@ -154,9 +174,10 @@ namespace ERP.ClassFile
         }
         #endregion
         #region Login Module
-        public bool CheckUsers(string Username, string Password,ref string ErrMSG)
+        public bool CheckUsers(string Username, string Password,ref string ErrMSG,string ProgramName)
         {
             bool result = false;
+            
             try{
                 if (string.IsNullOrEmpty(Username))
                 {
@@ -168,7 +189,10 @@ namespace ERP.ClassFile
                     ErrMSG = "Invalid User. Please check your Password.";
                     return result;
                 }
-                string QueryCheckUsers = "Select * from tbl_SYSTEM_Users where Username ='" + Username + "' and Password='" + Crypt(Password) + "' and isEnabled = 1";
+                string QueryCheckUsers = "SELECT * FROM tbl_SYSTEM_Users u LEFT JOIN tbl_SYSTEM_INFO i " +
+                "ON u.systemreference = i.sysID where u.Username ='" + Username + "' and u.Password='" + 
+                Crypt(Password) + "' and u.isEnabled = 1 and i.ProgramCode='" + Crypt(ProgramName) + "'";
+
                 if (cdt.SelectData(QueryCheckUsers).Rows.Count == 0)
                 {
                     ErrMSG = "Unregistered Users. Please check your entry";

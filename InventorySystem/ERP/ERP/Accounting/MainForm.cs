@@ -10,6 +10,7 @@ namespace ERP.Accounting
 {
     public partial class MainForm : Telerik.WinControls.UI.RadRibbonForm
     {
+        ClassFile.clsValidation cv = new ClassFile.clsValidation();
         public MainForm()
         {
             InitializeComponent();
@@ -35,7 +36,10 @@ namespace ERP.Accounting
             csu.StartPosition = FormStartPosition.Manual;
             csu.Left = 0;
             csu.Top = 0;
-            csu.Show();
+            if(!cv.CheckChildFormOpen(csu.Name))
+            {
+                csu.Show();
+            }
         }
 
         private void radRibbonBarGroup2_Click(object sender, EventArgs e)
@@ -43,7 +47,10 @@ namespace ERP.Accounting
             AccountingSetup asp = new AccountingSetup();
             asp.MdiParent = this;
             asp.parent = this;
-            asp.Show();
+            if (!cv.CheckChildFormOpen(asp.Name))
+            {
+                asp.Show();
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)

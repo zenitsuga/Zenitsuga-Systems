@@ -11,9 +11,15 @@ namespace ERP.Accounting.ChartOfAccount
 {
     public partial class AccountType : Form
     {
+        Form parent;
         public AccountType()
         {
             InitializeComponent();
+        }
+
+        private void AccountType_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

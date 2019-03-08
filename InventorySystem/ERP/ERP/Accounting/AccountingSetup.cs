@@ -11,6 +11,7 @@ namespace ERP.Accounting
 {
     public partial class AccountingSetup : Telerik.WinControls.UI.RadForm
     {
+        ClassFile.clsValidation cv = new ClassFile.clsValidation();
         public Form parent;
         public AccountingSetup()
         {
@@ -24,10 +25,14 @@ namespace ERP.Accounting
                 case "Chart of Accounts":
                     ChartOfAccount.ChartAccountMasterFile cam = new ChartOfAccount.ChartAccountMasterFile();
                     cam.MdiParent = parent;
+                    cam.MainParent = parent;
                     cam.Left = 0;
                     cam.Top = 0;
-                    cam.Show();
-                    break;
+                    if (!cv.CheckChildFormOpen(cam.Name))
+                    {
+                        cam.Show();
+                    }
+                        break;
             }
         }
 

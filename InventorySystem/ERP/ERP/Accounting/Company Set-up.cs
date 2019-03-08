@@ -36,5 +36,22 @@ namespace ERP.Accounting
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+        #region Process
+        private void Save()
+        {
+            string ModuleSelected = tabControl1.SelectedTab.Text;
+            DialogResult dr = MessageBox.Show("Are you sure you want to add entry on " + ModuleSelected + "?", "Confirm to Add", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        }
+        #endregion
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
     }
 }

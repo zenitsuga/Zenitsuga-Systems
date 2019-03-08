@@ -29,19 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbAccountTypeID = new System.Windows.Forms.TextBox();
-            this.tbAccountType = new System.Windows.Forms.TextBox();
-            this.tbAccountTypeDescription = new System.Windows.Forms.TextBox();
-            this.rbOpeningBalanceYes = new System.Windows.Forms.RadioButton();
-            this.rbOpeningBalanceNo = new System.Windows.Forms.RadioButton();
-            this.tbAccountTypeNotes = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.tbAccountTypeNotes = new System.Windows.Forms.TextBox();
+            this.rbOpeningBalanceNo = new System.Windows.Forms.RadioButton();
+            this.rbOpeningBalanceYes = new System.Windows.Forms.RadioButton();
+            this.tbAccountTypeDescription = new System.Windows.Forms.TextBox();
+            this.tbAccountType = new System.Windows.Forms.TextBox();
+            this.tbAccountTypeID = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgAccountTypeRecordList = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,14 +57,13 @@
             this.pbCompanyICON = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.dgAccountTypeRecordList = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAccountTypeRecordList)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
             this.radPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAccountTypeRecordList)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,84 +87,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Details";
             // 
-            // label1
+            // checkBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID:";
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(198, 14);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(65, 17);
+            this.checkBox1.TabIndex = 11;
+            this.checkBox1.Text = "Enabled";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // tbAccountTypeNotes
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "AccountType:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Description";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 233);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 13);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Has Opening Balance:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 146);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Notes:";
-            // 
-            // tbAccountTypeID
-            // 
-            this.tbAccountTypeID.Location = new System.Drawing.Point(127, 11);
-            this.tbAccountTypeID.Name = "tbAccountTypeID";
-            this.tbAccountTypeID.ReadOnly = true;
-            this.tbAccountTypeID.Size = new System.Drawing.Size(65, 20);
-            this.tbAccountTypeID.TabIndex = 5;
-            // 
-            // tbAccountType
-            // 
-            this.tbAccountType.Location = new System.Drawing.Point(127, 36);
-            this.tbAccountType.Name = "tbAccountType";
-            this.tbAccountType.Size = new System.Drawing.Size(283, 20);
-            this.tbAccountType.TabIndex = 6;
-            // 
-            // tbAccountTypeDescription
-            // 
-            this.tbAccountTypeDescription.Location = new System.Drawing.Point(127, 62);
-            this.tbAccountTypeDescription.Multiline = true;
-            this.tbAccountTypeDescription.Name = "tbAccountTypeDescription";
-            this.tbAccountTypeDescription.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbAccountTypeDescription.Size = new System.Drawing.Size(283, 75);
-            this.tbAccountTypeDescription.TabIndex = 7;
-            // 
-            // rbOpeningBalanceYes
-            // 
-            this.rbOpeningBalanceYes.AutoSize = true;
-            this.rbOpeningBalanceYes.Location = new System.Drawing.Point(127, 231);
-            this.rbOpeningBalanceYes.Name = "rbOpeningBalanceYes";
-            this.rbOpeningBalanceYes.Size = new System.Drawing.Size(46, 17);
-            this.rbOpeningBalanceYes.TabIndex = 8;
-            this.rbOpeningBalanceYes.Text = "YES";
-            this.rbOpeningBalanceYes.UseVisualStyleBackColor = true;
+            this.tbAccountTypeNotes.Location = new System.Drawing.Point(127, 143);
+            this.tbAccountTypeNotes.Multiline = true;
+            this.tbAccountTypeNotes.Name = "tbAccountTypeNotes";
+            this.tbAccountTypeNotes.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.tbAccountTypeNotes.Size = new System.Drawing.Size(283, 82);
+            this.tbAccountTypeNotes.TabIndex = 10;
             // 
             // rbOpeningBalanceNo
             // 
@@ -178,26 +120,84 @@
             this.rbOpeningBalanceNo.Text = "NO";
             this.rbOpeningBalanceNo.UseVisualStyleBackColor = true;
             // 
-            // tbAccountTypeNotes
+            // rbOpeningBalanceYes
             // 
-            this.tbAccountTypeNotes.Location = new System.Drawing.Point(127, 143);
-            this.tbAccountTypeNotes.Multiline = true;
-            this.tbAccountTypeNotes.Name = "tbAccountTypeNotes";
-            this.tbAccountTypeNotes.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbAccountTypeNotes.Size = new System.Drawing.Size(283, 82);
-            this.tbAccountTypeNotes.TabIndex = 10;
+            this.rbOpeningBalanceYes.AutoSize = true;
+            this.rbOpeningBalanceYes.Location = new System.Drawing.Point(127, 231);
+            this.rbOpeningBalanceYes.Name = "rbOpeningBalanceYes";
+            this.rbOpeningBalanceYes.Size = new System.Drawing.Size(46, 17);
+            this.rbOpeningBalanceYes.TabIndex = 8;
+            this.rbOpeningBalanceYes.Text = "YES";
+            this.rbOpeningBalanceYes.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // tbAccountTypeDescription
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(198, 14);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(65, 17);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Enabled";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.tbAccountTypeDescription.Location = new System.Drawing.Point(127, 62);
+            this.tbAccountTypeDescription.Multiline = true;
+            this.tbAccountTypeDescription.Name = "tbAccountTypeDescription";
+            this.tbAccountTypeDescription.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.tbAccountTypeDescription.Size = new System.Drawing.Size(283, 75);
+            this.tbAccountTypeDescription.TabIndex = 7;
+            // 
+            // tbAccountType
+            // 
+            this.tbAccountType.Location = new System.Drawing.Point(127, 36);
+            this.tbAccountType.Name = "tbAccountType";
+            this.tbAccountType.Size = new System.Drawing.Size(283, 20);
+            this.tbAccountType.TabIndex = 6;
+            // 
+            // tbAccountTypeID
+            // 
+            this.tbAccountTypeID.Location = new System.Drawing.Point(127, 11);
+            this.tbAccountTypeID.Name = "tbAccountTypeID";
+            this.tbAccountTypeID.ReadOnly = true;
+            this.tbAccountTypeID.Size = new System.Drawing.Size(65, 20);
+            this.tbAccountTypeID.TabIndex = 5;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 146);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Notes:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 233);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 13);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Has Opening Balance:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(8, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Description";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "AccountType:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "ID:";
             // 
             // groupBox2
             // 
@@ -208,6 +208,18 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Record(s)";
+            // 
+            // dgAccountTypeRecordList
+            // 
+            this.dgAccountTypeRecordList.AllowUserToAddRows = false;
+            this.dgAccountTypeRecordList.AllowUserToDeleteRows = false;
+            this.dgAccountTypeRecordList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAccountTypeRecordList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgAccountTypeRecordList.Location = new System.Drawing.Point(3, 16);
+            this.dgAccountTypeRecordList.Name = "dgAccountTypeRecordList";
+            this.dgAccountTypeRecordList.ReadOnly = true;
+            this.dgAccountTypeRecordList.Size = new System.Drawing.Size(449, 238);
+            this.dgAccountTypeRecordList.TabIndex = 0;
             // 
             // statusStrip1
             // 
@@ -346,18 +358,6 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Account Type";
             // 
-            // dgAccountTypeRecordList
-            // 
-            this.dgAccountTypeRecordList.AllowUserToAddRows = false;
-            this.dgAccountTypeRecordList.AllowUserToDeleteRows = false;
-            this.dgAccountTypeRecordList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAccountTypeRecordList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgAccountTypeRecordList.Location = new System.Drawing.Point(3, 16);
-            this.dgAccountTypeRecordList.Name = "dgAccountTypeRecordList";
-            this.dgAccountTypeRecordList.ReadOnly = true;
-            this.dgAccountTypeRecordList.Size = new System.Drawing.Size(449, 238);
-            this.dgAccountTypeRecordList.TabIndex = 0;
-            // 
             // AccountType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,16 +373,17 @@
             this.MinimizeBox = false;
             this.Name = "AccountType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.AccountType_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgAccountTypeRecordList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
             this.radPanel1.ResumeLayout(false);
             this.radPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAccountTypeRecordList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
