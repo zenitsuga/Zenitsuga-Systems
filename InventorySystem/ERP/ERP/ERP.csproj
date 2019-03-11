@@ -115,6 +115,9 @@
     <EmbeddedResource Include="Accounting\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONDO\frm_FloorInformation.resx">
+      <DependentUpon>frm_FloorInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CONDO\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +162,12 @@
     <Compile Include="ClassFile\clsIni.cs" />
     <Compile Include="ClassFile\clsValidation.cs" />
     <Compile Include="ClassFile\clsVariableSettings.cs" />
+    <Compile Include="CONDO\frm_FloorInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONDO\frm_FloorInformation.Designer.cs">
+      <DependentUpon>frm_FloorInformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="CONDO\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
