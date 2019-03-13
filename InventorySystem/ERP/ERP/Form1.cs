@@ -254,6 +254,7 @@ namespace ERP
             {
                 CONDO.MainForm mf = new CONDO.MainForm();
                 mf.Show();
+                this.ShowInTaskbar = false;
                 this.Hide();
             }
             else
