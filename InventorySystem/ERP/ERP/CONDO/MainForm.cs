@@ -16,7 +16,9 @@ namespace ERP.CONDO
         string ProcessCode = string.Empty;
         bool islogoffUser = false;
         string QueryRecords = string.Empty;
+        string Modules = string.Empty;
         ClassFile.clsDatabaseTransactions cdtrans = new ClassFile.clsDatabaseTransactions();
+        string QueryTable = string.Empty;
 
         public MainForm()
         {
@@ -81,8 +83,10 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Floor_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "SELECT 'FALSE' AS SELECTED, f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username,f.DateDefined as 'CREATION DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_SYSTEM_Users u ON f.userID = u.sysID WHERE f.isEnabled = 1;";
-            LoadRecords(QueryRecords,"Floor Information");
+            QueryRecords = "Select f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username as 'Created By',f.DateDefined as 'CREATION DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_SYSTEM_Users u ON f.userID = u.sysID WHERE f.isEnabled = 1;";
+            Modules = "Floor Information";
+            LoadRecords(QueryRecords,Modules);
+            QueryTable = "tbl_CONDO_FloorInfo";
         }
 
         private void LoadRecords(string QUERY,string ModuleName)
@@ -108,6 +112,7 @@ namespace ERP.CONDO
                         frm_FloorInformation fi = new frm_FloorInformation();
                         fi.StartPosition = FormStartPosition.CenterScreen;
                         fi.ShowDialog();
+                        LoadRecords(QueryRecords,Modules);
                         break;
                     default:
                         break;
@@ -133,6 +138,49 @@ namespace ERP.CONDO
         {
             islogoffUser = true;
             this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(QueryTable))
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    DialogResult drSelected = MessageBox.Show("Are you sure you want to delete this selected entry?", "Delete Entries", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (drSelected == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow dgrow in dataGridView1.SelectedRows)
+                        {
+                            string Query = "Delete from " + QueryTable + " where sysid=" + dgrow.Cells["ID"].Value.ToString();
+                            cdtrans.InsertData(Query);
+                        }
+                        LoadRecords(QueryRecords, Modules);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error: No data selected. Please highligh all row or click the left pane to select row.","No Selected Row Define",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(QueryTable))
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    DialogResult drSelected = MessageBox.Show("Are you sure you want to modify this selected entry?", "Modify Entries", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (drSelected == DialogResult.Yes)
+                    {
+
+                    }
+                }
+                else
+                {
+
+                }
+            }
         }
     }
 }
