@@ -19,6 +19,7 @@ namespace ERP.CONDO
         string Modules = string.Empty;
         ClassFile.clsDatabaseTransactions cdtrans = new ClassFile.clsDatabaseTransactions();
         string QueryTable = string.Empty;
+        DataTable dtSearchResult = new DataTable();
 
         public MainForm()
         {
@@ -83,7 +84,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Floor_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "Select f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username as 'Created By',f.DateDefined as 'CREATION DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_SYSTEM_Users u ON f.userID = u.sysID WHERE f.isEnabled = 1;";
+            QueryRecords = "Select f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username as 'CREATED BY',f.DateDefined as 'CREATION DATE',p.Username as 'UPDATED BY',f.LastDateDefined as 'UPDATED DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_SYSTEM_Users u ON f.userID = u.sysID LEFT Join tbl_SYSTEM_Users p on f.LastUpdateUser = p.sysid WHERE f.isEnabled = 1;";
             Modules = "Floor Information";
             LoadRecords(QueryRecords,Modules);
             QueryTable = "tbl_CONDO_FloorInfo";
@@ -96,10 +97,20 @@ namespace ERP.CONDO
             {
                 DataTable dtShowRecords = cdtrans.SelectData(QUERY);
                 dataGridView1.DataSource = dtShowRecords;
+                dtSearchResult = dtShowRecords;
             }catch(Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message.ToString(), "Error in Fetching Record :" + ModuleName);
             }
+            if (dataGridView1.Rows.Count > 0)
+            {
+                cbSearchFilter.Items.Clear();
+                foreach (DataGridViewColumn dc in dataGridView1.Columns)
+                {
+                    cbSearchFilter.Items.Add(dc.Name);
+                }
+            }
+         
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -117,6 +128,32 @@ namespace ERP.CONDO
                     default:
                         break;
                 }
+                btnRefresh.PerformClick();
+            }
+        }
+
+        private void LoadRecords()
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(ProcessCode))
+                {
+                    switch (ProcessCode)
+                    {
+                        case "Floor_Info":
+                            LoadRecords(QueryRecords, Modules);
+                            break;
+                        case "Unit_Info":
+                            LoadRecords(QueryRecords, Modules);
+                            break;
+                        default:
+                            break;
+                    }
+                    tbSearch.Enabled = false;
+                }
+            }
+            catch
+            {
             }
         }
 
@@ -162,6 +199,7 @@ namespace ERP.CONDO
                     MessageBox.Show("Error: No data selected. Please highligh all row or click the left pane to select row.","No Selected Row Define",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
+            btnRefresh.PerformClick();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -173,13 +211,79 @@ namespace ERP.CONDO
                     DialogResult drSelected = MessageBox.Show("Are you sure you want to modify this selected entry?", "Modify Entries", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (drSelected == DialogResult.Yes)
                     {
-
+                        if (!string.IsNullOrEmpty(ProcessCode))
+                        {
+                            switch (ProcessCode)
+                            {
+                                case "Floor_Info":
+                                    frm_FloorInformation fi = new frm_FloorInformation();
+                                    fi.isUpdate = true;
+                                    fi.ForUpdate_SysID = int.Parse(dataGridView1["ID", dataGridView1.SelectedRows[0].Index].Value.ToString());
+                                    fi.SelectedDG = dataGridView1;
+                                    fi.ShowDialog();
+                                    break;
+                            }
+                        }
                     }
                 }
                 else
                 {
-
+                    MessageBox.Show("Warning: Please select row first.", "Select only one row to", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                btnRefresh.PerformClick();
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LoadRecords();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "UNIT INFORMATION";
+            lblDescription.Text = "Configuration for All Unit/Room information";
+            dashboardClick = false;
+            ProcessCode = "Unit_Info";
+            tabControl1.SelectedTab = tabPage2;
+            QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_CONDO_UnitInfo ui LEFT JOIN tbl_CONDO_FloorInfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_SYSTEM_Users u ON ui.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
+            Modules = "Unit Information";
+            LoadRecords(QueryRecords, Modules);
+            QueryTable = "tbl_CONDO_UnitInfo";
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(cbSearchFilter.Text))
+            {
+                string Filter = "[" + cbSearchFilter.Text + "] LIKE '" + tbSearch.Text + "*'";
+                if (!string.IsNullOrEmpty(tbSearch.Text))
+                {
+                    DataTable dtDG = new DataTable();
+                    dtDG = dtSearchResult;
+                    DataView dv = dtDG.DefaultView;
+                    dv.RowFilter = Filter;
+                    dataGridView1.DataSource = dv.ToTable();
+                }
+                else
+                {
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = dtSearchResult;
+                    dataGridView1.Refresh();
+                }
+            }
+        }
+
+        private void cbSearchFilter_SelectedValueChanged(object sender, EventArgs e)
+        {
+            tbSearch.Text = string.Empty;
+            if (!string.IsNullOrEmpty(cbSearchFilter.Text))
+            {
+                tbSearch.Enabled = true;
+            }
+            else
+            {
+                tbSearch.Enabled = false;
             }
         }
     }

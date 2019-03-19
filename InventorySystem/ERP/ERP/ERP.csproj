@@ -115,8 +115,14 @@
     <EmbeddedResource Include="Accounting\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONDO\FrmModification.resx">
+      <DependentUpon>FrmModification.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CONDO\frm_FloorInformation.resx">
       <DependentUpon>frm_FloorInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONDO\frm_UnitInformation.resx">
+      <DependentUpon>frm_UnitInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONDO\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -162,11 +168,23 @@
     <Compile Include="ClassFile\clsIni.cs" />
     <Compile Include="ClassFile\clsValidation.cs" />
     <Compile Include="ClassFile\clsVariableSettings.cs" />
+    <Compile Include="CONDO\FrmModification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONDO\FrmModification.Designer.cs">
+      <DependentUpon>FrmModification.cs</DependentUpon>
+    </Compile>
     <Compile Include="CONDO\frm_FloorInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CONDO\frm_FloorInformation.Designer.cs">
       <DependentUpon>frm_FloorInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONDO\frm_UnitInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONDO\frm_UnitInformation.Designer.cs">
+      <DependentUpon>frm_UnitInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="CONDO\MainForm.cs">
       <SubType>Form</SubType>
@@ -224,12 +242,16 @@
     <Content Include="Accounting\Resources\CompanySetup.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\unit.JPG" />
+    <None Include="Resources\dashboard.JPG" />
+    <None Include="Resources\Billing.JPG" />
     <Content Include="Resources\dbconnect.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\dbnotconnect.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\floor.JPG" />
     <Content Include="Resources\keys.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

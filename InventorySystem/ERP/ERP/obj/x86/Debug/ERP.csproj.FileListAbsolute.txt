@@ -41,6 +41,8 @@ E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Deb
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.ChartOfAccount.ChartAccountMasterFile.resources
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.Company_Set_up.resources
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.MainForm.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.FrmModification.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_FloorInformation.resources
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.MainForm.resources
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Configuration.frmConfiguration.resources
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Form1.resources
@@ -52,4 +54,4 @@ E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Deb
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.application
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_FloorInformation.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_UnitInformation.resources

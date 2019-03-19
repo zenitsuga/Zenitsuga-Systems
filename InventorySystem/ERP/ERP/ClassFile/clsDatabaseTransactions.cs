@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 namespace ERP.ClassFile
@@ -23,8 +24,9 @@ namespace ERP.ClassFile
                 string Password = ci.Read("Password", "Database");
                 result = "Server = " + ServerName + "; Database = " + DatabaseName + "; Uid = " + UserName + "; Pwd = " + Password + "";
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Error: " + ex.Message.ToString(), "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return result;
         }
@@ -50,7 +52,7 @@ namespace ERP.ClassFile
             }
             catch(Exception ex)
             {
-                
+                MessageBox.Show("Error: " + ex.Message.ToString(), "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return result;
         }
@@ -74,8 +76,9 @@ namespace ERP.ClassFile
                 da.Fill(result);
                 conn.Close();
             }
-            catch
+            catch (Exception ex)
             {
+                MessageBox.Show("Error: " + ex.Message.ToString(), "Unexpected Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return result;
         }
