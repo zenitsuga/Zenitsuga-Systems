@@ -1,21 +1,3 @@
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbconnect.jpg
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbnotconnect.jpg
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\keys.jpg
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\settings.ini
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe.config
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.pdb
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\MySql.Data.dll
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\SecurityClass.dll
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\SecurityClass.pdb
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.csprojResolveAssemblyReference.cache
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Configuration.frmConfiguration.resources
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Form1.resources
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Properties.Resources.resources
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.csproj.GenerateResource.Cache
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe.licenses
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
-C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\Add.png
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\CompanySetup.png
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbconnect.jpg
@@ -55,3 +37,36 @@ E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Deb
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_UnitInformation.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\Add.png
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\CompanySetup.png
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbconnect.jpg
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbnotconnect.jpg
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\keys.jpg
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\settings.ini
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe.config
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe.manifest
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.application
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.pdb
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\MySql.Data.dll
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\SecurityClass.dll
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\SecurityClass.pdb
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.csprojResolveAssemblyReference.cache
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.AccountingSetup.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.ChartOfAccount.AccountType.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.ChartOfAccount.ChartAccountMasterFile.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.Company_Set_up.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.MainForm.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.FrmModification.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_FloorInformation.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_UnitInformation.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.MainForm.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Configuration.frmConfiguration.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Form1.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Properties.Resources.resources
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.csproj.GenerateResource.Cache
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.TrustInfo.xml
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe.manifest
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.application
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
+C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb

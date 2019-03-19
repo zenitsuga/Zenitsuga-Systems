@@ -5,11 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Telerik.WinControls;
+
 
 namespace ERP.Accounting
 {
-    public partial class Company_Set_up : Telerik.WinControls.UI.RadForm
+    public partial class Company_Set_up : Form
     {
         public Company_Set_up()
         {

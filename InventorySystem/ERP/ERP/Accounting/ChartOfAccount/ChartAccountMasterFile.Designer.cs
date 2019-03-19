@@ -31,7 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+           
             this.pbCompanyICON = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,8 +54,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
-            this.radPanel1.SuspendLayout();
+           
             ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -94,15 +93,7 @@
             // 
             // radPanel1
             // 
-            this.radPanel1.Controls.Add(this.pbCompanyICON);
-            this.radPanel1.Controls.Add(this.label10);
-            this.radPanel1.Controls.Add(this.label11);
-            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radPanel1.Location = new System.Drawing.Point(0, 0);
-            this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(831, 59);
-            this.radPanel1.TabIndex = 5;
-            this.radPanel1.Text = "radPanel1";
+           
             // 
             // pbCompanyICON
             // 
@@ -313,16 +304,14 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.radPanel1);
+           
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ChartAccountMasterFile";
             this.Load += new System.EventHandler(this.ChartAccountMasterFile_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
-            this.radPanel1.ResumeLayout(false);
-            this.radPanel1.PerformLayout();
+           
+         
             ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -339,7 +328,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAdd;
-        private Telerik.WinControls.UI.RadPanel radPanel1;
+       
         private System.Windows.Forms.PictureBox pbCompanyICON;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;

@@ -5,11 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using Telerik.WinControls;
+
 
 namespace ERP.Accounting
 {
-    public partial class AccountingSetup : Telerik.WinControls.UI.RadForm
+    public partial class AccountingSetup : Form
     {
         ClassFile.clsValidation cv = new ClassFile.clsValidation();
         public Form parent;

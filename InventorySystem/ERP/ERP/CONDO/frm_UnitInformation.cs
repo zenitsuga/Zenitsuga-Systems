@@ -42,13 +42,14 @@ namespace ERP.CONDO
         {
             frm_FloorInformation fi = new frm_FloorInformation();
             fi.ShowDialog();
+            LoadFloor();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
             {
-
+                tbTotalDues.Text = (int.Parse(tbArea.Text) * int.Parse(tbMonthlyDue.Text)).ToString();
             }
         }
 
@@ -90,6 +91,7 @@ namespace ERP.CONDO
         }
         private void LoadFloor()
         {
+            cbFloorList.Items.Clear();
             string Query = "SELECT sysID,FloorName FROM tbl_CONDO_FloorInfo WHERE isEnabled = 1 ORDER BY Sysid asc";
             cbFloorList.DataSource = dtrans.SelectData(Query);
             cbFloorList.DisplayMember = "FloorName";

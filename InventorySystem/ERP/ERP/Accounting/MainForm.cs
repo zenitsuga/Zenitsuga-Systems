@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace ERP.Accounting
 {
-    public partial class MainForm : Telerik.WinControls.UI.RadRibbonForm
+    public partial class MainForm : Form
     {
         ClassFile.clsValidation cv = new ClassFile.clsValidation();
         public MainForm()

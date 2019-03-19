@@ -37,7 +37,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.btnNew = new System.Windows.Forms.Button();
-            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+          
             this.pbCompanyICON = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,8 +52,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
-            this.radPanel1.SuspendLayout();
+          
             ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -156,15 +155,7 @@
             // 
             // radPanel1
             // 
-            this.radPanel1.Controls.Add(this.pbCompanyICON);
-            this.radPanel1.Controls.Add(this.label2);
-            this.radPanel1.Controls.Add(this.label1);
-            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radPanel1.Location = new System.Drawing.Point(0, 0);
-            this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(672, 59);
-            this.radPanel1.TabIndex = 1;
-            this.radPanel1.Text = "radPanel1";
+          
             // 
             // pbCompanyICON
             // 
@@ -298,20 +289,16 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.radPanel1);
+           
             this.Name = "AccountingSetup";
             // 
             // 
-            // 
-            this.RootElement.ApplyShapeToControl = true;
+            //            
             this.Text = "";
             this.Load += new System.EventHandler(this.AccountingSetup_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
-            this.radPanel1.ResumeLayout(false);
-            this.radPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).EndInit();
+           ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -336,7 +323,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnNew;
-        private Telerik.WinControls.UI.RadPanel radPanel1;
+       
         private System.Windows.Forms.PictureBox pbCompanyICON;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

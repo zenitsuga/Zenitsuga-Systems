@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.radPanel1 = new Telerik.WinControls.UI.RadPanel();
+            
             this.pbCompanyICON = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.radPanel2 = new Telerik.WinControls.UI.RadPanel();
+           
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpCompanyLists = new System.Windows.Forms.TabPage();
@@ -74,11 +74,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).BeginInit();
-            this.radPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).BeginInit();
-            this.radPanel2.SuspendLayout();
+           
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpCompanyLists.SuspendLayout();
@@ -95,15 +91,7 @@
             // 
             // radPanel1
             // 
-            this.radPanel1.Controls.Add(this.pbCompanyICON);
-            this.radPanel1.Controls.Add(this.label2);
-            this.radPanel1.Controls.Add(this.label1);
-            this.radPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.radPanel1.Location = new System.Drawing.Point(0, 0);
-            this.radPanel1.Name = "radPanel1";
-            this.radPanel1.Size = new System.Drawing.Size(735, 59);
-            this.radPanel1.TabIndex = 0;
-            this.radPanel1.Text = "radPanel1";
+          
             // 
             // pbCompanyICON
             // 
@@ -136,14 +124,7 @@
             // 
             // radPanel2
             // 
-            this.radPanel2.Controls.Add(this.panel2);
-            this.radPanel2.Controls.Add(this.panel1);
-            this.radPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radPanel2.Location = new System.Drawing.Point(0, 59);
-            this.radPanel2.Name = "radPanel2";
-            this.radPanel2.Size = new System.Drawing.Size(735, 319);
-            this.radPanel2.TabIndex = 1;
-            this.radPanel2.Text = "radPanel2";
+        
             // 
             // panel2
             // 
@@ -531,24 +512,17 @@
             this.ClientSize = new System.Drawing.Size(735, 378);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.radPanel2);
-            this.Controls.Add(this.radPanel1);
+          
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Company_Set_up";
             // 
             // 
             // 
-            this.RootElement.ApplyShapeToControl = true;
+          
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "";
-            this.Load += new System.EventHandler(this.Company_Set_up_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel1)).EndInit();
-            this.radPanel1.ResumeLayout(false);
-            this.radPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbCompanyICON)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radPanel2)).EndInit();
-            this.radPanel2.ResumeLayout(false);
+           
             this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tpCompanyLists.ResumeLayout(false);
@@ -573,8 +547,7 @@
 
         #endregion
 
-        private Telerik.WinControls.UI.RadPanel radPanel1;
-        private Telerik.WinControls.UI.RadPanel radPanel2;
+       
         private System.Windows.Forms.PictureBox pbCompanyICON;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
