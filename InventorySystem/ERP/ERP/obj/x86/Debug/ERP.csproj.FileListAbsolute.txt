@@ -1,42 +1,3 @@
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\Add.png
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\CompanySetup.png
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbconnect.jpg
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbnotconnect.jpg
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\keys.jpg
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\settings.ini
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe.config
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe.manifest
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.application
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.pdb
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\MySql.Data.dll
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\SecurityClass.dll
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Telerik.WinControls.dll
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Telerik.WinControls.UI.dll
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\TelerikCommon.dll
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\SecurityClass.pdb
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Telerik.WinControls.xml
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Telerik.WinControls.UI.xml
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.csprojResolveAssemblyReference.cache
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.AccountingSetup.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.ChartOfAccount.AccountType.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.ChartOfAccount.ChartAccountMasterFile.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.Company_Set_up.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.MainForm.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.FrmModification.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_FloorInformation.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.MainForm.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Configuration.frmConfiguration.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Form1.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Properties.Resources.resources
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.csproj.GenerateResource.Cache
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe.licenses
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.TrustInfo.xml
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe.manifest
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.application
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb
-E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_UnitInformation.resources
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\Add.png
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\CompanySetup.png
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbconnect.jpg
@@ -70,3 +31,36 @@ C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.application
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\Add.png
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Accounting\Resources\CompanySetup.png
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbconnect.jpg
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dbnotconnect.jpg
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\keys.jpg
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\settings.ini
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe.config
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe.manifest
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.application
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.exe
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\ERP.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\MySql.Data.dll
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\SecurityClass.dll
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\SecurityClass.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.csprojResolveAssemblyReference.cache
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.AccountingSetup.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.ChartOfAccount.AccountType.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.ChartOfAccount.ChartAccountMasterFile.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.Company_Set_up.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Accounting.MainForm.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.FrmModification.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_FloorInformation.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_UnitInformation.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.MainForm.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Configuration.frmConfiguration.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Form1.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.Properties.Resources.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.csproj.GenerateResource.Cache
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.TrustInfo.xml
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe.manifest
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.application
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb

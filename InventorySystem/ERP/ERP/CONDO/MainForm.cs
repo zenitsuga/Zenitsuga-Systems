@@ -125,6 +125,12 @@ namespace ERP.CONDO
                         fi.ShowDialog();
                         LoadRecords(QueryRecords,Modules);
                         break;
+                    case "Unit_Info":
+                        frm_UnitInformation ui = new frm_UnitInformation();
+                        ui.StartPosition = FormStartPosition.CenterScreen;
+                        ui.ShowDialog();
+                        LoadRecords(QueryRecords, Modules);
+                        break;
                     default:
                         break;
                 }
@@ -254,23 +260,29 @@ namespace ERP.CONDO
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(cbSearchFilter.Text))
+            try
             {
-                string Filter = "[" + cbSearchFilter.Text + "] LIKE '" + tbSearch.Text + "*'";
-                if (!string.IsNullOrEmpty(tbSearch.Text))
+                if (!string.IsNullOrEmpty(cbSearchFilter.Text))
                 {
-                    DataTable dtDG = new DataTable();
-                    dtDG = dtSearchResult;
-                    DataView dv = dtDG.DefaultView;
-                    dv.RowFilter = Filter;
-                    dataGridView1.DataSource = dv.ToTable();
+                    string Filter = "[" + cbSearchFilter.Text + "] LIKE '" + tbSearch.Text + "*'";
+                    if (!string.IsNullOrEmpty(tbSearch.Text))
+                    {
+                        DataTable dtDG = new DataTable();
+                        dtDG = dtSearchResult;
+                        DataView dv = dtDG.DefaultView;
+                        dv.RowFilter = Filter;
+                        dataGridView1.DataSource = dv.ToTable();
+                    }
+                    else
+                    {
+                        dataGridView1.DataSource = null;
+                        dataGridView1.DataSource = dtSearchResult;
+                        dataGridView1.Refresh();
+                    }
                 }
-                else
-                {
-                    dataGridView1.DataSource = null;
-                    dataGridView1.DataSource = dtSearchResult;
-                    dataGridView1.Refresh();
-                }
+            }
+            catch
+            {
             }
         }
 

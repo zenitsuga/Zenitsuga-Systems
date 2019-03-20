@@ -32,6 +32,16 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbTotalDues = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbMonthlyDue = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbArea = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.cbFloorList = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.tbUnitName = new System.Windows.Forms.TextBox();
@@ -42,16 +52,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbFloorList = new System.Windows.Forms.ComboBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.tbArea = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.tbMonthlyDue = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.tbTotalDues = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -93,6 +93,7 @@
             this.button1.TabIndex = 13;
             this.button1.Text = "&Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -119,6 +120,103 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Entry";
+            // 
+            // tbTotalDues
+            // 
+            this.tbTotalDues.Enabled = false;
+            this.tbTotalDues.Location = new System.Drawing.Point(464, 107);
+            this.tbTotalDues.Name = "tbTotalDues";
+            this.tbTotalDues.Size = new System.Drawing.Size(56, 20);
+            this.tbTotalDues.TabIndex = 9;
+            this.tbTotalDues.Text = "0";
+            this.tbTotalDues.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(400, 110);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 13);
+            this.label8.TabIndex = 8;
+            this.label8.Text = "Total Dues:";
+            // 
+            // tbMonthlyDue
+            // 
+            this.tbMonthlyDue.Enabled = false;
+            this.tbMonthlyDue.Location = new System.Drawing.Point(338, 107);
+            this.tbMonthlyDue.Name = "tbMonthlyDue";
+            this.tbMonthlyDue.Size = new System.Drawing.Size(56, 20);
+            this.tbMonthlyDue.TabIndex = 7;
+            this.tbMonthlyDue.Text = "0";
+            this.tbMonthlyDue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbMonthlyDue.TextChanged += new System.EventHandler(this.tbMonthlyDue_TextChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(185, 110);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(156, 17);
+            this.checkBox1.TabIndex = 6;
+            this.checkBox1.Text = "Set Monthly Dues Per SQM";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(135, 112);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "SQM";
+            // 
+            // tbArea
+            // 
+            this.tbArea.Location = new System.Drawing.Point(85, 109);
+            this.tbArea.Name = "tbArea";
+            this.tbArea.Size = new System.Drawing.Size(52, 20);
+            this.tbArea.TabIndex = 5;
+            this.tbArea.Text = "0";
+            this.tbArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbArea.TextChanged += new System.EventHandler(this.tbArea_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 114);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Area:";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(458, 14);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(60, 21);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Floor Info";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // cbFloorList
+            // 
+            this.cbFloorList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFloorList.FormattingEnabled = true;
+            this.cbFloorList.Location = new System.Drawing.Point(300, 13);
+            this.cbFloorList.Name = "cbFloorList";
+            this.cbFloorList.Size = new System.Drawing.Size(151, 21);
+            this.cbFloorList.TabIndex = 2;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(264, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(33, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Floor:";
             // 
             // button2
             // 
@@ -216,103 +314,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(264, 18);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(33, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Floor:";
-            // 
-            // cbFloorList
-            // 
-            this.cbFloorList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFloorList.FormattingEnabled = true;
-            this.cbFloorList.Location = new System.Drawing.Point(300, 13);
-            this.cbFloorList.Name = "cbFloorList";
-            this.cbFloorList.Size = new System.Drawing.Size(151, 21);
-            this.cbFloorList.TabIndex = 2;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(458, 14);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(60, 21);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Floor Info";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // tbArea
-            // 
-            this.tbArea.Location = new System.Drawing.Point(85, 109);
-            this.tbArea.Name = "tbArea";
-            this.tbArea.Size = new System.Drawing.Size(52, 20);
-            this.tbArea.TabIndex = 5;
-            this.tbArea.Text = "0";
-            this.tbArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 114);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Area:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(135, 112);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "SQM";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(185, 110);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(156, 17);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Set Monthly Dues Per SQM";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
-            // 
-            // tbMonthlyDue
-            // 
-            this.tbMonthlyDue.Enabled = false;
-            this.tbMonthlyDue.Location = new System.Drawing.Point(338, 107);
-            this.tbMonthlyDue.Name = "tbMonthlyDue";
-            this.tbMonthlyDue.Size = new System.Drawing.Size(56, 20);
-            this.tbMonthlyDue.TabIndex = 7;
-            this.tbMonthlyDue.Text = "0";
-            this.tbMonthlyDue.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(400, 110);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 13);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Total Dues:";
-            // 
-            // tbTotalDues
-            // 
-            this.tbTotalDues.Enabled = false;
-            this.tbTotalDues.Location = new System.Drawing.Point(464, 107);
-            this.tbTotalDues.Name = "tbTotalDues";
-            this.tbTotalDues.Size = new System.Drawing.Size(56, 20);
-            this.tbTotalDues.TabIndex = 9;
-            this.tbTotalDues.Text = "0";
-            this.tbTotalDues.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frm_UnitInformation
             // 

@@ -58,7 +58,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>16E1E419E1112AFB69031544EAD39B7770E1D7D5</ManifestCertificateThumbprint>
@@ -158,6 +158,12 @@
     </Compile>
     <Compile Include="CONDO\FrmModification.Designer.cs">
       <DependentUpon>FrmModification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONDO\frm_CustomerInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONDO\frm_CustomerInformation.Designer.cs">
+      <DependentUpon>frm_CustomerInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="CONDO\frm_FloorInformation.cs">
       <SubType>Form</SubType>
