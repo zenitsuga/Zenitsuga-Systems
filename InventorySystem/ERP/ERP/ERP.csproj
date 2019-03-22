@@ -104,6 +104,9 @@
     <EmbeddedResource Include="CONDO\FrmModification.resx">
       <DependentUpon>FrmModification.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONDO\frm_CustomerInformation.resx">
+      <DependentUpon>frm_CustomerInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CONDO\frm_FloorInformation.resx">
       <DependentUpon>frm_FloorInformation.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +236,8 @@
     <Content Include="Accounting\Resources\CompanySetup.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\tenant.jpeg" />
+    <None Include="Resources\users.jpeg" />
     <None Include="Resources\unit.JPG" />
     <None Include="Resources\dashboard.JPG" />
     <None Include="Resources\Billing.JPG" />

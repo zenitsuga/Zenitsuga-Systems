@@ -298,5 +298,18 @@ namespace ERP.CONDO
                 tbSearch.Enabled = false;
             }
         }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "CUSTOMER INFORMATION";
+            lblDescription.Text = "Configuration for All Customer information and details";
+            dashboardClick = false;
+            ProcessCode = "Customer_Info";
+            tabControl1.SelectedTab = tabPage2;
+            QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_CONDO_UnitInfo ui LEFT JOIN tbl_CONDO_FloorInfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_SYSTEM_Users u ON ui.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
+            Modules = "Unit Information";
+            LoadRecords(QueryRecords, Modules);
+            QueryTable = "tbl_CONDO_UnitInfo";
+        }
     }
 }
