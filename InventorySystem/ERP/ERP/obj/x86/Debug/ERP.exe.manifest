@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ERP.exe" size="159232">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ERP.exe" size="215552">
       <assemblyIdentity name="ERP" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>+Y0IqVT1RzyK+wCwowG14OBI0qg=</dsig:DigestValue>
+        <dsig:DigestValue>bw0HuT2xBE6bWV5HSoGKRYGed2c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -104,6 +104,24 @@
       <dsig:DigestValue>1MarUy3RuVvHLdw5ozZo3o7j39I=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\Billing.JPG" size="12131">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>/fQRfgYWGqz2awPJ5w49QJtU9fI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\dashboard.JPG" size="18293">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>MckgcwDbPb/8tZRu00pbbgqMsj4=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\dbconnect.jpg" size="4565">
     <hash>
       <dsig:Transforms>
@@ -122,6 +140,15 @@
       <dsig:DigestValue>ggwydNy5EzSxC9qlOEYH1LhtZd4=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\floor.JPG" size="12261">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>g3Nh8g7LhJc0GQ+1KO4W01FmFto=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\keys.jpg" size="1793">
     <hash>
       <dsig:Transforms>
@@ -129,6 +156,42 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
       <dsig:DigestValue>WSnwLxQ3n37NYtb8hxY8aAfas7w=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\profile.jpg" size="4313">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>9qTFLFSbAQBLSlOZroapVIDacYg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\tenant.jpeg" size="12083">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>Fy+I1FIx/gGGnYlrSwvI6hfaUTI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\unit.JPG" size="12924">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>63WhbqtO41LEgPRj7ksQabMVlsI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\users.jpeg" size="13894">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+      <dsig:DigestValue>FWuw14aWEIXr0BJOkWwePxpgGTw=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

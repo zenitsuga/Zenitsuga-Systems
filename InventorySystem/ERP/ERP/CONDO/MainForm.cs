@@ -53,14 +53,14 @@ namespace ERP.CONDO
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (button4.Text == "<<")
-            {
-                button4.Text = ">>";
-            }
-            else
-            {
-                button4.Text = "<<";
-            }
+        //    if (button4.Text == "<<")
+        //    {
+        //        button4.Text = ">>";
+        //    }
+        //    else
+        //    {
+        //        button4.Text = "<<";
+        //    }
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
@@ -72,22 +72,12 @@ namespace ERP.CONDO
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            QueryRecords = string.Empty;
-            dashboardClick = true;
-            tabControl1.SelectedTab = tabPage1;
+            
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            lblTitle.Text = "FLOOR INFORMATION";
-            lblDescription.Text = "Configuration for FLOOR LEVELS";
-            dashboardClick = false;
-            ProcessCode = "Floor_Info";
-            tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "Select f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username as 'CREATED BY',f.DateDefined as 'CREATION DATE',p.Username as 'UPDATED BY',f.LastDateDefined as 'UPDATED DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_SYSTEM_Users u ON f.userID = u.sysID LEFT Join tbl_SYSTEM_Users p on f.LastUpdateUser = p.sysid WHERE f.isEnabled = 1;";
-            Modules = "Floor Information";
-            LoadRecords(QueryRecords,Modules);
-            QueryTable = "tbl_CONDO_FloorInfo";
+            
         }
 
         private void LoadRecords(string QUERY,string ModuleName)
@@ -115,27 +105,7 @@ namespace ERP.CONDO
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(ProcessCode))
-            {
-                switch (ProcessCode)
-                {
-                    case "Floor_Info":
-                        frm_FloorInformation fi = new frm_FloorInformation();
-                        fi.StartPosition = FormStartPosition.CenterScreen;
-                        fi.ShowDialog();
-                        LoadRecords(QueryRecords,Modules);
-                        break;
-                    case "Unit_Info":
-                        frm_UnitInformation ui = new frm_UnitInformation();
-                        ui.StartPosition = FormStartPosition.CenterScreen;
-                        ui.ShowDialog();
-                        LoadRecords(QueryRecords, Modules);
-                        break;
-                    default:
-                        break;
-                }
-                btnRefresh.PerformClick();
-            }
+            
         }
 
         private void LoadRecords()
@@ -185,59 +155,12 @@ namespace ERP.CONDO
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(QueryTable))
-            {
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    DialogResult drSelected = MessageBox.Show("Are you sure you want to delete this selected entry?", "Delete Entries", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (drSelected == DialogResult.Yes)
-                    {
-                        foreach (DataGridViewRow dgrow in dataGridView1.SelectedRows)
-                        {
-                            string Query = "Delete from " + QueryTable + " where sysid=" + dgrow.Cells["ID"].Value.ToString();
-                            cdtrans.InsertData(Query);
-                        }
-                        LoadRecords(QueryRecords, Modules);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error: No data selected. Please highligh all row or click the left pane to select row.","No Selected Row Define",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                }
-            }
-            btnRefresh.PerformClick();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(QueryTable))
-            {
-                if (dataGridView1.SelectedRows.Count == 1)
-                {
-                    DialogResult drSelected = MessageBox.Show("Are you sure you want to modify this selected entry?", "Modify Entries", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (drSelected == DialogResult.Yes)
-                    {
-                        if (!string.IsNullOrEmpty(ProcessCode))
-                        {
-                            switch (ProcessCode)
-                            {
-                                case "Floor_Info":
-                                    frm_FloorInformation fi = new frm_FloorInformation();
-                                    fi.isUpdate = true;
-                                    fi.ForUpdate_SysID = int.Parse(dataGridView1["ID", dataGridView1.SelectedRows[0].Index].Value.ToString());
-                                    fi.SelectedDG = dataGridView1;
-                                    fi.ShowDialog();
-                                    break;
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Warning: Please select row first.", "Select only one row to", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                btnRefresh.PerformClick();
-            }
+          
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -247,15 +170,7 @@ namespace ERP.CONDO
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            lblTitle.Text = "UNIT INFORMATION";
-            lblDescription.Text = "Configuration for All Unit/Room information";
-            dashboardClick = false;
-            ProcessCode = "Unit_Info";
-            tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_CONDO_UnitInfo ui LEFT JOIN tbl_CONDO_FloorInfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_SYSTEM_Users u ON ui.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
-            Modules = "Unit Information";
-            LoadRecords(QueryRecords, Modules);
-            QueryTable = "tbl_CONDO_UnitInfo";
+            
         }
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -301,15 +216,180 @@ namespace ERP.CONDO
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void toolStripButton5_Click_1(object sender, EventArgs e)
+        {
             lblTitle.Text = "CUSTOMER INFORMATION";
             lblDescription.Text = "Configuration for All Customer information and details";
             dashboardClick = false;
             ProcessCode = "Customer_Info";
             tabControl1.SelectedTab = tabPage2;
+            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,(cuo.LastName + ',' + cuo.FirstName + ' ' + cuo.MiddleName) AS 'Owner Info'from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1;";
+            Modules = "Customer Information";
+            LoadRecords(QueryRecords, Modules);
+            QueryTable = "tbl_CONDO_CustomerInfo";
+        }
+
+        private void toolStripButton6_Click_1(object sender, EventArgs e)
+        {
+            lblTitle.Text = "TENANT INFORMATION";
+            lblDescription.Text = "Configuration for All Tenant information and details";
+            dashboardClick = false;
+            ProcessCode = "Tenant_Info";
+            tabControl1.SelectedTab = tabPage2;
+            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,(cuo.LastName + ',' + cuo.FirstName + ' ' + cuo.MiddleName) AS 'Owner Info' from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1 and cu.isTenant = 1;";
+            Modules = "Tenant Information";
+            LoadRecords(QueryRecords, Modules);
+            QueryTable = "tbl_CONDO_CustomerInfo";
+        }
+
+        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        {
+            lblTitle.Text = "UNIT INFORMATION";
+            lblDescription.Text = "Configuration for All Unit/Room information";
+            dashboardClick = false;
+            ProcessCode = "Unit_Info";
+            tabControl1.SelectedTab = tabPage2;
             QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_CONDO_UnitInfo ui LEFT JOIN tbl_CONDO_FloorInfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_SYSTEM_Users u ON ui.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
             Modules = "Unit Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_UnitInfo";
+        }
+
+        private void toolStripButton3_Click_1(object sender, EventArgs e)
+        {
+            lblTitle.Text = "FLOOR INFORMATION";
+            lblDescription.Text = "Configuration for FLOOR LEVELS";
+            dashboardClick = false;
+            ProcessCode = "Floor_Info";
+            tabControl1.SelectedTab = tabPage2;
+            QueryRecords = "Select f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username as 'CREATED BY',f.DateDefined as 'CREATION DATE',p.Username as 'UPDATED BY',f.LastDateDefined as 'UPDATED DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_SYSTEM_Users u ON f.userID = u.sysID LEFT Join tbl_SYSTEM_Users p on f.LastUpdateUser = p.sysid WHERE f.isEnabled = 1;";
+            Modules = "Floor Information";
+            LoadRecords(QueryRecords, Modules);
+            QueryTable = "tbl_CONDO_FloorInfo";
+        }
+
+        private void toolStripButton1_Click_1(object sender, EventArgs e)
+        {
+            QueryRecords = string.Empty;
+            dashboardClick = true;
+            tabControl1.SelectedTab = tabPage1;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(ProcessCode))
+            {
+                switch (ProcessCode)
+                {
+                    case "Floor_Info":
+                        frm_FloorInformation fi = new frm_FloorInformation();
+                        fi.StartPosition = FormStartPosition.CenterScreen;
+                        fi.ShowDialog();
+                        LoadRecords(QueryRecords, Modules);
+                        break;
+                    case "Unit_Info":
+                        frm_UnitInformation ui = new frm_UnitInformation();
+                        ui.StartPosition = FormStartPosition.CenterScreen;
+                        ui.ShowDialog();
+                        LoadRecords(QueryRecords, Modules);
+                        break;
+                    case "Customer_Info":
+                    case "Tenant_Info":
+                        frm_CustomerInformation ci = new frm_CustomerInformation();
+                        ci.StartPosition = FormStartPosition.CenterScreen;
+                        ci.LoadQuery = QueryRecords;
+                        ci.ShowDialog();
+                        LoadRecords(QueryRecords, Modules);
+                        break;
+                    default:
+                        break;
+                }
+                btnRefresh.PerformClick();
+            }
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(QueryTable))
+            {
+                if (dataGridView1.SelectedRows.Count == 1)
+                {
+                    DialogResult drSelected = MessageBox.Show("Are you sure you want to modify this selected entry?", "Modify Entries", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (drSelected == DialogResult.Yes)
+                    {
+                        if (!string.IsNullOrEmpty(ProcessCode))
+                        {
+                            switch (ProcessCode)
+                            {
+                                case "Floor_Info":
+                                    frm_FloorInformation fi = new frm_FloorInformation();
+                                    fi.isUpdate = true;
+                                    fi.ForUpdate_SysID = int.Parse(dataGridView1["ID", dataGridView1.SelectedRows[0].Index].Value.ToString());
+                                    fi.SelectedDG = dataGridView1;
+                                    fi.ShowDialog();
+                                    break;
+                                case "Unit_Info":
+                                    frm_UnitInformation ui = new frm_UnitInformation();
+                                    ui.isUpdate = true;
+                                    ui.ForUpdate_SysID = int.Parse(dataGridView1["ID", dataGridView1.SelectedRows[0].Index].Value.ToString());
+                                    ui.SelectedDG = dataGridView1;
+                                    ui.ShowDialog();
+                                    break;
+                                case "Customer_Info":
+                                case "Tenant_Info":
+                                    frm_CustomerInformation cu = new frm_CustomerInformation();
+                                    cu.isUpdate = true;
+                                    cu.ForUpdate_SysID = int.Parse(dataGridView1["ID", dataGridView1.SelectedRows[0].Index].Value.ToString());
+                                    cu.SelectedDG = dataGridView1;
+                                    cu.ShowDialog();
+                                    break;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Warning: Please select row first.", "Select only one row to", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                btnRefresh.PerformClick();
+            }
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(QueryTable))
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    DialogResult drSelected = MessageBox.Show("Are you sure you want to delete this selected entry?", "Delete Entries", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (drSelected == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow dgrow in dataGridView1.SelectedRows)
+                        {
+                            string Query = "Delete from " + QueryTable + " where sysid=" + dgrow.Cells["ID"].Value.ToString();
+                            cdtrans.InsertData(Query);
+                        }
+                        LoadRecords(QueryRecords, Modules);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error: No data selected. Please highligh all row or click the left pane to select row.", "No Selected Row Define", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            LoadRecords(QueryRecords, Modules);
         }
     }
 }

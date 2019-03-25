@@ -131,12 +131,14 @@ namespace ERP
             GetDBSettings();
             if (!cv.TestDatabaseConnection(Servername, Databasename, DBUsername, DBPassword))
             {
+                tmrLoading.Enabled = false;
+                tmrLoading.Stop();
+                tmrLoading.Dispose();
                 lblSys.Text = "Error: Database cannot connect. Please check configuration first";
                 lblSys.ForeColor = Color.Red;
                 MessageBox.Show(lblSys.Text, "Failed to connect", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 counterLogin = 0;
-                progressBar1.Value = counterLogin;
-                tmrLoading.Enabled = false;
+                progressBar1.Value = counterLogin;               
                 return;
             }
             tmrLoading.Start();

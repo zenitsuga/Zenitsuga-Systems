@@ -8,14 +8,14 @@
     <framework targetVersion="4.0" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="ERP.exe.manifest" size="7329">
+    <dependentAssembly dependencyType="install" codebase="ERP.exe.manifest" size="9998">
       <assemblyIdentity name="ERP.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>9FnWGVhYYuXTxNf0f1QYqYWa6O0=</dsig:DigestValue>
+        <dsig:DigestValue>5Ts1sZRTo1fhrm1wGGI/lsdzACA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

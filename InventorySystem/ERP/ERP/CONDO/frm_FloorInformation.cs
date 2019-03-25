@@ -44,7 +44,15 @@ namespace ERP.CONDO
                     button2.Enabled = false;
                 }
             }
-            
+            if (dataGridView1.Rows.Count == 0)
+            {
+                LoadRecords();
+            }
+        }
+        private void LoadRecords()
+        {
+           string QueryRecords = "Select f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username as 'CREATED BY',f.DateDefined as 'CREATION DATE',p.Username as 'UPDATED BY',f.LastDateDefined as 'UPDATED DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_SYSTEM_Users u ON f.userID = u.sysID LEFT Join tbl_SYSTEM_Users p on f.LastUpdateUser = p.sysid WHERE f.isEnabled = 1;";
+           dataGridView1.DataSource = dtrans.SelectData(QueryRecords);
         }
         private void ConstructDataTable()
         {

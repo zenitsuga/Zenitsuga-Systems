@@ -105,6 +105,26 @@ namespace ERP.CONDO
             dtData = new DataTable();
             ConstructDataTable();
             LoadFloor();
+
+            if (isUpdate)
+            {
+                if (SelectedDG.SelectedRows.Count == 1)
+                {
+                    tbUnitName.Text = SelectedDG.SelectedRows[0].Cells["Unit"].Value.ToString();
+                    tbDescription.Text = SelectedDG.SelectedRows[0].Cells["Description"].Value.ToString();
+                    button2.Enabled = false;
+                }
+            }
+
+            if (dataGridView1.Rows.Count == 0)
+            {
+                LoadRecords();
+            }
+        }
+        private void LoadRecords()
+        {
+            string QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_CONDO_UnitInfo ui LEFT JOIN tbl_CONDO_FloorInfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_SYSTEM_Users u ON ui.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
+            dataGridView1.DataSource = dtrans.SelectData(QueryRecords);
         }
         private void LoadFloor()
         {
@@ -139,6 +159,26 @@ namespace ERP.CONDO
                 MessageBox.Show("Error: Cannot save record. Please check your entry.","No Record to add",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+
+            if (isUpdate)
+            {
+                DialogResult drResult = MessageBox.Show("Are you sure you want to update the entry?", "Saving Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (drResult == DialogResult.Yes)
+                {
+                    string Query = "Update tbl_CONDO_UnitInfo set UnitName = '" + tbUnitName.Text + "',UnitDescription='" + tbDescription.Text + "',FloorAssociate=" + cbFloorList.SelectedValue  + ",AreaSQM="+ tbArea.Text +",MonthlyDue=" + tbMonthlyDue.Text +",IsMonthlyDueComputed="+ (checkBox1.Checked ? 1:0).ToString() +",LastUpdateUser=" + UserID + ",LastDateDefined='" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where sysID=" + ForUpdate_SysID;
+                    bool isUpdateSuccess = dtrans.InsertData(Query);
+                    if (isUpdateSuccess)
+                    {
+                        MessageBox.Show("Entry successfully updated.", "Update Done", MessageBoxButtons.OK);
+                        tbDescription.Text = string.Empty;
+                        tbUnitName.Text = string.Empty;
+                        isUpdate = false;
+                    }
+                }
+                button2.Enabled = true;
+                return;
+            }
+
             foreach (DataGridViewRow dgrow in dataGridView1.Rows)
             {
                 int FloorID = int.Parse(dtrans.SelectData("Select sysID from tbl_CONDO_FloorInfo where Floorname='" + dgrow.Cells["FloorName"].Value.ToString() + "'").Rows[0][0].ToString());

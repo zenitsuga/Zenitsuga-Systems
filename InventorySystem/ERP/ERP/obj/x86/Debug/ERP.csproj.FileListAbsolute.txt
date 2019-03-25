@@ -64,3 +64,11 @@ E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Deb
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.application
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.exe
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_CustomerInformation.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\profile.jpg
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\tenant.jpeg
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\users.jpeg
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\unit.JPG
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\dashboard.JPG
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\Billing.JPG
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\floor.JPG
