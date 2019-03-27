@@ -57,6 +57,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbOwner = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -73,8 +75,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cbOwner = new System.Windows.Forms.ComboBox();
+            this.lblSearchID = new System.Windows.Forms.Label();
+            this.lblOwnerID = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -378,6 +380,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.lblOwnerID);
+            this.tabPage2.Controls.Add(this.lblSearchID);
             this.tabPage2.Controls.Add(this.cbOwner);
             this.tabPage2.Controls.Add(this.label17);
             this.tabPage2.Controls.Add(this.label15);
@@ -394,6 +398,25 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tenant Information";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cbOwner
+            // 
+            this.cbOwner.FormattingEnabled = true;
+            this.cbOwner.Location = new System.Drawing.Point(56, 30);
+            this.cbOwner.Name = "cbOwner";
+            this.cbOwner.Size = new System.Drawing.Size(325, 21);
+            this.cbOwner.TabIndex = 54;
+            this.cbOwner.SelectedIndexChanged += new System.EventHandler(this.cbOwner_SelectedIndexChanged);
+            this.cbOwner.Leave += new System.EventHandler(this.cbOwner_Leave);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(5, 35);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 53;
+            this.label17.Text = "Owner:";
             // 
             // label15
             // 
@@ -438,6 +461,7 @@
             this.cbSearchTenant.Name = "cbSearchTenant";
             this.cbSearchTenant.Size = new System.Drawing.Size(325, 21);
             this.cbSearchTenant.TabIndex = 1;
+            this.cbSearchTenant.SelectedIndexChanged += new System.EventHandler(this.cbSearchTenant_SelectedIndexChanged);
             this.cbSearchTenant.Leave += new System.EventHandler(this.cbSearchTenant_Leave);
             // 
             // label6
@@ -545,22 +569,25 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label17
+            // lblSearchID
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(5, 35);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
-            this.label17.TabIndex = 53;
-            this.label17.Text = "Owner:";
+            this.lblSearchID.AutoSize = true;
+            this.lblSearchID.Location = new System.Drawing.Point(387, 10);
+            this.lblSearchID.Name = "lblSearchID";
+            this.lblSearchID.Size = new System.Drawing.Size(13, 13);
+            this.lblSearchID.TabIndex = 55;
+            this.lblSearchID.Text = "0";
+            this.lblSearchID.Visible = false;
             // 
-            // cbOwner
+            // lblOwnerID
             // 
-            this.cbOwner.FormattingEnabled = true;
-            this.cbOwner.Location = new System.Drawing.Point(56, 30);
-            this.cbOwner.Name = "cbOwner";
-            this.cbOwner.Size = new System.Drawing.Size(325, 21);
-            this.cbOwner.TabIndex = 54;
+            this.lblOwnerID.AutoSize = true;
+            this.lblOwnerID.Location = new System.Drawing.Point(427, 10);
+            this.lblOwnerID.Name = "lblOwnerID";
+            this.lblOwnerID.Size = new System.Drawing.Size(13, 13);
+            this.lblOwnerID.TabIndex = 56;
+            this.lblOwnerID.Text = "0";
+            this.lblOwnerID.Visible = false;
             // 
             // frm_CustomerInformation
             // 
@@ -645,5 +672,7 @@
         private System.Windows.Forms.Label lblPicPath;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox cbOwner;
+        private System.Windows.Forms.Label lblOwnerID;
+        private System.Windows.Forms.Label lblSearchID;
     }
 }

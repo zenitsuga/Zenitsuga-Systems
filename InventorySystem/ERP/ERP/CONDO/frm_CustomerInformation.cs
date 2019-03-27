@@ -102,13 +102,23 @@ namespace ERP.CONDO
         {
             try
             {
-                string QueryTenant = "SELECT cu.sysid,case when cu.UseAlias = 1 then cu.Alias else CONCAT(cu.LastName , ',' , cu.FirstName , ' ' , cu.MiddleName) end as TenantName, cu.UseAlias from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1;";
+                cbSearchTenant.DataSource = null;
+                string QueryTenant = "SELECT cu.sysid,case when cu.UseAlias = 1 then cu.Alias else CONCAT(cu.LastName , ',' , cu.FirstName , ' ' , cu.MiddleName) end as TenantName, cu.UseAlias from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1 and cu.isTenant = 0;";
                 dtSource = new DataTable();
                 dtSource = dtrans.SelectData(QueryTenant);
+                AutoCompleteStringCollection AutoCompleteData = new AutoCompleteStringCollection();
+                foreach (DataRow dr in dtSource.Rows)
+                {
+                    AutoCompleteData.Add(dr["TenantName"].ToString());
+                }
                 cbSearchTenant.DataSource = dtSource;
                 cbSearchTenant.DisplayMember = "TenantName";
                 cbSearchTenant.ValueMember = "sysid";
+                cbSearchTenant.AutoCompleteMode = AutoCompleteMode.Suggest;
+                cbSearchTenant.AutoCompleteSource = AutoCompleteSource.ListItems;
+                cbSearchTenant.AutoCompleteCustomSource = AutoCompleteData;
                 cbSearchTenant.Refresh();
+                lblSearchID.Text = GetIDCombo(cbSearchTenant.Text.ToString(), cbSearchTenant);
             }catch(Exception ex)
             {
             }
@@ -116,16 +126,39 @@ namespace ERP.CONDO
 
         private void ListOwner(DataTable dtSource)
         {
-            //LoadTenant();
-            //AutoCompleteStringCollection TextboxList = new AutoCompleteStringCollection();
-            //textBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            //textBox1.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            DataView dv = new DataView(dtSource);
-            dv.RowFilter = "sysid <> " + cbSearchTenant.SelectedValue.ToString();
-            cbOwner.DataSource = dv.ToTable();
-            cbOwner.DisplayMember = "TenantName";
-            cbOwner.ValueMember = "sysid";
-            cbOwner.Refresh();
+            try
+            {
+                cbOwner.DataSource = null;
+                DataView dv = new DataView(dtSource);
+                if (cbSearchTenant.SelectedValue != null)
+                {
+                    dv.RowFilter = "sysid <> " + cbSearchTenant.SelectedValue.ToString();
+                }
+                else
+                {
+                    dv.RowFilter = "sysid <> 0";
+                }
+                cbOwner.DataSource = dv.ToTable();
+                cbOwner.DisplayMember = "TenantName";
+                cbOwner.ValueMember = "sysid";
+                if (dv.Count > 0)
+                {
+                    AutoCompleteStringCollection AutoCompleteData = new AutoCompleteStringCollection();
+                    foreach (DataRow dr in dv.ToTable().Rows)
+                    {
+                        AutoCompleteData.Add(dr["TenantName"].ToString());
+                    }
+                    cbOwner.AutoCompleteMode = AutoCompleteMode.Suggest;
+                    cbOwner.AutoCompleteSource = AutoCompleteSource.ListItems;
+                    cbOwner.AutoCompleteCustomSource = AutoCompleteData;
+                }
+                cbOwner.Refresh();
+                lblOwnerID.Text = GetIDCombo(cbOwner.Text.ToString(), cbOwner);
+            }
+            catch
+            {
+                LoadTenant();
+            }
         }
 
         private void LoadUnit()
@@ -187,6 +220,7 @@ namespace ERP.CONDO
         {
             DataTable dtSource = (DataTable)cbSearchTenant.DataSource;
             ListOwner(dtSource);
+            lblSearchID.Text = GetIDCombo(cbSearchTenant.Text.ToString(), cbSearchTenant);
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,16 +235,92 @@ namespace ERP.CONDO
         {
             try
             {
-                DialogResult dr = MessageBox.Show("Are you sure you want to add this Customer as Tenant?", "Assign to " + cbOwner.Text + "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                lblSearchID.Text = GetIDCombo(cbSearchTenant.Text.ToString(), cbSearchTenant);
+                lblOwnerID.Text = GetIDCombo(cbOwner.Text.ToString(), cbOwner);
+
+                if (lblOwnerID.Text == "0" || lblSearchID.Text == "0")
+                {
+                    MessageBox.Show("Error: Please check your entry. Cannot save entry", "Invalid Assignee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (lblOwnerID.Text == lblSearchID.Text)
+                {
+                    MessageBox.Show("Error: Please check your entry. Cannot save same entry", "Invalid Assignee", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DialogResult dr = MessageBox.Show("Are you sure you want to add this Customer as Tenant?\nTenant:" + cbSearchTenant.Text + "\nOwner:" + cbOwner.Text , "Assign to " + cbOwner.Text + "?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-
+                    string UpdateQuery = "update tbl_CONDO_CustomerInfo set isTenant = 1,CustomerRef = " + lblOwnerID.Text + " where sysID=" + lblSearchID.Text + " and isEnabled = 1";
+                    if (dtrans.InsertData(UpdateQuery))
+                    {
+                        MessageBox.Show("Successfully updated. New Owner has been defined", "Done Assigning Owner", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        lblOwnerID.Text = "0"; lblSearchID.Text = "0";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: Cannot assign Tenant to the Owner. Please check your entry", "Assigning Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                cbSearchTenant.DataSource = null;
+                cbOwner.DataSource = null;
+                LoadRecords();
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Error: Please select valid customer for this one.","Invalid Customer",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
+        }
+
+        private void cbSearchTenant_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSearchTenant.SelectedValue != null && cbSearchTenant.SelectedValue.ToString() != "System.Data.DataRowView")
+            {
+                lblSearchID.Text = cbSearchTenant.SelectedValue.ToString();
+            }
+            else
+            {
+                if(cbSearchTenant.SelectedText.ToString() != "")
+                lblSearchID.Text = GetIDCombo(cbSearchTenant.SelectedText.ToString(),cbSearchTenant);
+            }
+        }
+        private string GetIDCombo(string SearchValue,ComboBox cmb)
+        {
+            string result = "0";
+            try
+            {
+                DataTable dtCBSearch = new DataTable();
+                dtCBSearch = (DataTable)cmb.DataSource;
+                DataView dv = new DataView(dtCBSearch);
+                dv.RowFilter = "TenantName ='" + SearchValue + "'";
+                if (dv.Count > 0)
+                {
+                    result = dv.ToTable().Rows[0][0].ToString();
+                }
+            }
+            catch
+            {
+            }
+            return result;
+        }
+
+        private void cbOwner_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbOwner.SelectedValue != null && cbOwner.Text != "System.Data.DataRowView")
+            {
+                lblOwnerID.Text = GetIDCombo(cbOwner.Text.ToString(), cbOwner);
+            }
+            else
+            {
+                lblOwnerID.Text = GetIDCombo(cbOwner.SelectedText.ToString(), cbOwner);
+            }
+        }
+
+        private void cbOwner_Leave(object sender, EventArgs e)
+        {
+            lblOwnerID.Text = GetIDCombo(cbOwner.SelectedText.ToString(), cbOwner);
         }
     }
 }
