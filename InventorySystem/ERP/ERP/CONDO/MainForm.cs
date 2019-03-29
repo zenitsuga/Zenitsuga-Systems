@@ -29,6 +29,9 @@ namespace ERP.CONDO
         private void MainForm_Load(object sender, EventArgs e)
         {
             sidepanelwidth = panel4.Width;
+            splitContainer1.SplitterDistance = 220;
+            DateTime dtTest = new DateTime(2019, 3, 30);
+            
         }
 
         private void floorInformationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -231,7 +234,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Customer_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,(cuo.LastName + ',' + cuo.FirstName + ' ' + cuo.MiddleName) AS 'Owner Info'from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1;";
+            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,concat(cuo.LastName , ',' , cuo.FirstName , ' ' , cuo.MiddleName) AS 'Owner Info'from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1;";
             Modules = "Customer Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_CustomerInfo";
@@ -244,7 +247,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Tenant_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,(cuo.LastName + ',' + cuo.FirstName + ' ' + cuo.MiddleName) AS 'Owner Info' from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1 and cu.isTenant = 1;";
+            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,Concat(cuo.LastName , ',' , cuo.FirstName , ' ' , cuo.MiddleName) AS 'Owner Info' from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1 and cu.isTenant = 1;";
             Modules = "Tenant Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_CustomerInfo";
@@ -329,6 +332,13 @@ namespace ERP.CONDO
                         {
                             switch (ProcessCode)
                             {
+                                case "":
+                                    frm_BillingInfo bi = new frm_BillingInfo();
+                                    bi.isUpdate = true;
+                                    bi.ForUpdate_SysID = int.Parse(dataGridView1["ID", dataGridView1.SelectedRows[0].Index].Value.ToString());
+                                    bi.SelectedDG = dataGridView1;
+                                    bi.ShowDialog();
+                                    break;
                                 case "Floor_Info":
                                     frm_FloorInformation fi = new frm_FloorInformation();
                                     fi.isUpdate = true;
@@ -390,6 +400,11 @@ namespace ERP.CONDO
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             LoadRecords(QueryRecords, Modules);
+        }
+
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

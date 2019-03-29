@@ -322,5 +322,15 @@ namespace ERP.CONDO
         {
             lblOwnerID.Text = GetIDCombo(cbOwner.SelectedText.ToString(), cbOwner);
         }
+
+        private void lblSearchID_TextChanged(object sender, EventArgs e)
+        {
+            if (lblSearchID.Text != "0" && lblSearchID.Text != "")
+            {
+                string Query = "SELECT cu.sysid AS 'ID',concat(cu.LastName , ',' , cu.Firstname,' ',cu.Middlename) AS 'TENANT NAME',concat(cu.LastName , ',' , cu.Firstname,' ',cu.Middlename) AS 'OWNER NAME',ui.UnitName FROM tbl_CONDO_Customerinfo cu LEFT JOIN tbl_CONDO_Customerinfo cut ON cu.CustomerRef = cut.SysID LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo=ui.sysid WHERE cu.isTenant = 1 AND cu.CustomerRef = " + lblSearchID.Text;
+                dataGridView2.DataSource = dtrans.SelectData(Query);
+                dataGridView2.Refresh();
+            }
+        }
     }
 }

@@ -159,6 +159,44 @@ INSERT INTO `tbl_condo_floorinfo` (`sysID`, `FloorName`, `FloorDescription`, `us
 	(2, 'Second Floor SW', 'Second Floor South Wing', -1, 1, '2019-03-13 23:24:16', -1, '2019-03-19 06:38:36');
 /*!40000 ALTER TABLE `tbl_condo_floorinfo` ENABLE KEYS */;
 
+-- Dumping structure for table 0hsoozjazg.tbl_condo_nofifications
+CREATE TABLE IF NOT EXISTS `tbl_condo_nofifications` (
+  `sysID` int(11) NOT NULL AUTO_INCREMENT,
+  `NotificationSubject` varchar(50) NOT NULL,
+  `Information` varchar(50) DEFAULT NULL,
+  `isEmailSent` int(11) NOT NULL DEFAULT '0',
+  `EmailToSend` varchar(50) DEFAULT NULL,
+  `SubjectDate` timestamp NULL DEFAULT NULL,
+  `CreatedBy` int(11) NOT NULL DEFAULT '-1',
+  `DateCreated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isEnabled` int(11) NOT NULL DEFAULT '1',
+  `SentEmail` int(11) NOT NULL DEFAULT '-1',
+  `SentDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`sysID`),
+  UNIQUE KEY `NotificationSubject` (`NotificationSubject`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table 0hsoozjazg.tbl_condo_nofifications: ~0 rows (approximately)
+DELETE FROM `tbl_condo_nofifications`;
+/*!40000 ALTER TABLE `tbl_condo_nofifications` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_condo_nofifications` ENABLE KEYS */;
+
+-- Dumping structure for table 0hsoozjazg.tbl_condo_settings
+CREATE TABLE IF NOT EXISTS `tbl_condo_settings` (
+  `sysID` int(11) NOT NULL AUTO_INCREMENT,
+  `SettingsName` varchar(50) NOT NULL,
+  `SettingsValue` varchar(50) DEFAULT NULL,
+  `GroupName` varchar(50) NOT NULL,
+  `isEnabled` int(11) DEFAULT '1',
+  PRIMARY KEY (`sysID`),
+  UNIQUE KEY `SettingsName` (`SettingsName`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Dumping data for table 0hsoozjazg.tbl_condo_settings: ~0 rows (approximately)
+DELETE FROM `tbl_condo_settings`;
+/*!40000 ALTER TABLE `tbl_condo_settings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tbl_condo_settings` ENABLE KEYS */;
+
 -- Dumping structure for table 0hsoozjazg.tbl_condo_unitinfo
 CREATE TABLE IF NOT EXISTS `tbl_condo_unitinfo` (
   `SysID` int(11) NOT NULL AUTO_INCREMENT,

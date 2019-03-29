@@ -57,6 +57,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.lblOwnerID = new System.Windows.Forms.Label();
+            this.lblSearchID = new System.Windows.Forms.Label();
             this.cbOwner = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -75,8 +77,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblSearchID = new System.Windows.Forms.Label();
-            this.lblOwnerID = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -107,7 +107,7 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -399,6 +399,27 @@
             this.tabPage2.Text = "Tenant Information";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // lblOwnerID
+            // 
+            this.lblOwnerID.AutoSize = true;
+            this.lblOwnerID.Location = new System.Drawing.Point(427, 10);
+            this.lblOwnerID.Name = "lblOwnerID";
+            this.lblOwnerID.Size = new System.Drawing.Size(13, 13);
+            this.lblOwnerID.TabIndex = 56;
+            this.lblOwnerID.Text = "0";
+            this.lblOwnerID.Visible = false;
+            // 
+            // lblSearchID
+            // 
+            this.lblSearchID.AutoSize = true;
+            this.lblSearchID.Location = new System.Drawing.Point(387, 10);
+            this.lblSearchID.Name = "lblSearchID";
+            this.lblSearchID.Size = new System.Drawing.Size(13, 13);
+            this.lblSearchID.TabIndex = 55;
+            this.lblSearchID.Text = "0";
+            this.lblSearchID.Visible = false;
+            this.lblSearchID.TextChanged += new System.EventHandler(this.lblSearchID_TextChanged);
+            // 
             // cbOwner
             // 
             this.cbOwner.FormattingEnabled = true;
@@ -438,9 +459,14 @@
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView2.Location = new System.Drawing.Point(9, 58);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(479, 139);
             this.dataGridView2.TabIndex = 5;
             // 
@@ -568,26 +594,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // lblSearchID
-            // 
-            this.lblSearchID.AutoSize = true;
-            this.lblSearchID.Location = new System.Drawing.Point(387, 10);
-            this.lblSearchID.Name = "lblSearchID";
-            this.lblSearchID.Size = new System.Drawing.Size(13, 13);
-            this.lblSearchID.TabIndex = 55;
-            this.lblSearchID.Text = "0";
-            this.lblSearchID.Visible = false;
-            // 
-            // lblOwnerID
-            // 
-            this.lblOwnerID.AutoSize = true;
-            this.lblOwnerID.Location = new System.Drawing.Point(427, 10);
-            this.lblOwnerID.Name = "lblOwnerID";
-            this.lblOwnerID.Size = new System.Drawing.Size(13, 13);
-            this.lblOwnerID.TabIndex = 56;
-            this.lblOwnerID.Text = "0";
-            this.lblOwnerID.Visible = false;
             // 
             // frm_CustomerInformation
             // 
