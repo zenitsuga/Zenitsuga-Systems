@@ -40,6 +40,21 @@ namespace ERP.ClassFile
             return result;
         }
         #endregion
+        #region GeneralValidation
+        public bool isInteger(string value)
+        {
+            bool result = false;
+            try
+            {
+                int valueInt = int.Parse(value);
+                result = true;
+            }
+            catch
+            {
+            }
+            return result;
+        }
+        #endregion
         #region INI(Settings)
         public bool UnMaskPassword()
         {

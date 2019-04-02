@@ -110,11 +110,20 @@
     <EmbeddedResource Include="CONDO\frm_CustomerInformation.resx">
       <DependentUpon>frm_CustomerInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONDO\frm_CutoffInfo.resx">
+      <DependentUpon>frm_CutoffInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CONDO\frm_FloorInformation.resx">
       <DependentUpon>frm_FloorInformation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CONDO\frm_TransactionCost.resx">
+      <DependentUpon>frm_TransactionCost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CONDO\frm_UnitInformation.resx">
       <DependentUpon>frm_UnitInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CONDO\frm_ZeroAmount.resx">
+      <DependentUpon>frm_ZeroAmount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CONDO\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -177,17 +186,35 @@
     <Compile Include="CONDO\frm_CustomerInformation.Designer.cs">
       <DependentUpon>frm_CustomerInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="CONDO\frm_CutoffInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONDO\frm_CutoffInfo.Designer.cs">
+      <DependentUpon>frm_CutoffInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="CONDO\frm_FloorInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CONDO\frm_FloorInformation.Designer.cs">
       <DependentUpon>frm_FloorInformation.cs</DependentUpon>
     </Compile>
+    <Compile Include="CONDO\frm_TransactionCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONDO\frm_TransactionCost.Designer.cs">
+      <DependentUpon>frm_TransactionCost.cs</DependentUpon>
+    </Compile>
     <Compile Include="CONDO\frm_UnitInformation.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CONDO\frm_UnitInformation.Designer.cs">
       <DependentUpon>frm_UnitInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CONDO\frm_ZeroAmount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CONDO\frm_ZeroAmount.Designer.cs">
+      <DependentUpon>frm_ZeroAmount.cs</DependentUpon>
     </Compile>
     <Compile Include="CONDO\MainForm.cs">
       <SubType>Form</SubType>
@@ -247,6 +274,8 @@
     </Content>
     <None Include="Resources\calendar.jpeg" />
     <None Include="Resources\exit.jpg" />
+    <None Include="Resources\cutoff.jpg" />
+    <None Include="Resources\cutoff1.jpg" />
     <Content Include="Resources\profile.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

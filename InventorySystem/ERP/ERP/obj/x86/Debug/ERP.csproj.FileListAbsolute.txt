@@ -73,3 +73,6 @@ E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\R
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\Billing.JPG
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\bin\Debug\Resources\floor.JPG
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_BillingInfo.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_CutoffInfo.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_TransactionCost.resources
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\ERP\obj\x86\Debug\ERP.CONDO.frm_ZeroAmount.resources

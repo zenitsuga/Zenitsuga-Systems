@@ -285,13 +285,20 @@ namespace ERP.CONDO
             dashboardClick = true;
             tabControl1.SelectedTab = tabPage1;
         }
-
+        //Add Records
         private void button1_Click_1(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(ProcessCode))
             {
                 switch (ProcessCode)
                 {
+                    case "Cutoff_Info":
+                        frm_CutoffInfo co = new frm_CutoffInfo();
+                        co.StartPosition = FormStartPosition.CenterScreen;
+                        co.QueryRecords = QueryRecords;
+                        co.ShowDialog();
+                        LoadRecords(QueryRecords, Modules);
+                        break;
                     case "Floor_Info":
                         frm_FloorInformation fi = new frm_FloorInformation();
                         fi.StartPosition = FormStartPosition.CenterScreen;
@@ -304,8 +311,12 @@ namespace ERP.CONDO
                         ui.ShowDialog();
                         LoadRecords(QueryRecords, Modules);
                         break;
-                    case "Customer_Info":
-                    case "Tenant_Info":
+                    case "Billing_Info":
+                        frm_BillingInfo bi = new frm_BillingInfo();
+                        bi.StartPosition = FormStartPosition.CenterScreen;
+                        bi.ShowDialog();
+                        break;
+                    case "Tenant_Info":case "Customer_Info":
                         frm_CustomerInformation ci = new frm_CustomerInformation();
                         ci.StartPosition = FormStartPosition.CenterScreen;
                         ci.LoadQuery = QueryRecords;
@@ -404,7 +415,41 @@ namespace ERP.CONDO
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
+            lblTitle.Text = "BILLING INFORMATION";
+            lblDescription.Text = "Configuration for BILLING INFORMATION";
+            dashboardClick = false;
+            ProcessCode = "Billing_Info";
+            tabControl1.SelectedTab = tabPage2;
+            QueryRecords = "SELECT  cu.BillStart,cu.BillEnd,ci.LastName,ci.FirstName,ci.MiddleName,bi.TotalAmoutDue,bi.PreviousBalanceAsOf,bi.LastPaymentEntry,bi.Balances,bi.CurrentCharges FROM tbl_condo_billinginfo bi LEFT JOIN  tbl_condo_cutoffinfo cu ON bi.CutoffID = cu.sysID LEFT JOIN tbl_condo_customerinfo ci ON bi.CustomerID = ci.sysID WHERE bi.isEnabled = 1;";
+            Modules = "Billing Information";
+            LoadRecords(QueryRecords, Modules);
+            QueryTable = "tbl_CONDO_BillingInfo";
+        }
 
+        private void toolStripButton10_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "CUT-OFF INFORMATION";
+            lblDescription.Text = "Configuration for CUT-OFF INFORMATION";
+            dashboardClick = false;
+            ProcessCode = "Cutoff_Info";
+            tabControl1.SelectedTab = tabPage2;
+            QueryRecords = "SELECT co.YEAR,co.MONTH,co.BILLSTART,co.BILLEND,CONCAT(cu.LastName,',',cu.FirstName) AS 'CREATED BY',co.CREATEDDATE,CONCAT(cu.LastName,',',cu.FirstName) AS 'MODIFY BY',co.MODIFIEDDATE FROM tbl_condo_cutoffinfo co LEFT JOIN tbl_condo_customerinfo cu ON co.CreatedBy = cu.sysid LEFT JOIN tbl_condo_customerinfo cus ON co.ModifyBy = cus.sysid";
+            Modules = "Cut-off Information";
+            LoadRecords(QueryRecords, Modules);
+            QueryTable = "tbl_CONDO_cutoffInfo";
+        }
+
+        private void toolStripButton11_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "PAYMENT INFORMATION";
+            lblDescription.Text = "Configuration for PAYMENT INFORMATION";
+            dashboardClick = false;
+            ProcessCode = "Payment_Info";
+            tabControl1.SelectedTab = tabPage2;
+            QueryRecords = "";
+            Modules = "Billing Information";
+            LoadRecords(QueryRecords, Modules);
+            QueryTable = "tbl_CONDO_BillingInfo";
         }
     }
 }
