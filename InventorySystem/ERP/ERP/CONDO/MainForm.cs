@@ -420,7 +420,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Billing_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "SELECT  cu.BillStart,cu.BillEnd,ci.LastName,ci.FirstName,ci.MiddleName,bi.TotalAmoutDue,bi.PreviousBalanceAsOf,bi.LastPaymentEntry,bi.Balances,bi.CurrentCharges FROM tbl_condo_billinginfo bi LEFT JOIN  tbl_condo_cutoffinfo cu ON bi.CutoffID = cu.sysID LEFT JOIN tbl_condo_customerinfo ci ON bi.CustomerID = ci.sysID WHERE bi.isEnabled = 1;";
+            QueryRecords = "SELECT  bi.sysID as 'ID',cu.BillStart,cu.BillEnd,ci.LastName,ci.FirstName,ci.MiddleName,bi.TotalAmountDue,bi.PreviousBalanceAsOf,bi.LastPaymentEntry,bi.Balances,bi.CurrentCharges FROM tbl_condo_billinginfo bi LEFT JOIN  tbl_condo_cutoffinfo cu ON bi.CutoffID = cu.sysID LEFT JOIN tbl_condo_customerinfo ci ON bi.CustomerID = ci.sysID WHERE bi.isEnabled = 1;";
             Modules = "Billing Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_BillingInfo";

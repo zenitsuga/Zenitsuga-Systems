@@ -11,7 +11,9 @@ namespace ERP.CONDO
 {
     public partial class frm_ZeroAmount : Form
     {
-        public Decimal AmountEnteted;
+        public Decimal AmountEntered;
+        public string ManualNotes;
+        
         public frm_ZeroAmount()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace ERP.CONDO
 
         private void frm_ZeroAmount_Load(object sender, EventArgs e)
         {
-            AmountEnteted = decimal.Parse("0.00");
+            AmountEntered = decimal.Parse("0.00");
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -38,7 +40,30 @@ namespace ERP.CONDO
 
         private void frm_ZeroAmount_FormClosed(object sender, FormClosedEventArgs e)
         {
-            AmountEnteted = decimal.Parse(textBox1.Text);
+            AmountEntered = decimal.Parse(textBox1.Text);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = string.Empty;
+            if (checkBox1.Checked)
+            {
+                this.Height = 266;
+            }
+            else
+            {
+                this.Height = 133;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           DialogResult dr = MessageBox.Show("This will insert a manual price. Would you like to continue?","Continue Manual Pricing?",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+           if (dr == DialogResult.Yes)
+           {
+               ManualNotes = textBox2.Text;
+               this.Close();
+           }
         }
     }
 }

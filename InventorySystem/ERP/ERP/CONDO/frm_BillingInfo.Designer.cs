@@ -64,6 +64,9 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblCustomerID = new System.Windows.Forms.Label();
+            this.lblCurrenttotal = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -86,7 +89,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(801, 77);
+            this.groupBox1.Size = new System.Drawing.Size(962, 77);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -128,7 +131,7 @@
             this.groupBox2.Controls.Add(this.tabControl1);
             this.groupBox2.Location = new System.Drawing.Point(0, 80);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(795, 488);
+            this.groupBox2.Size = new System.Drawing.Size(956, 488);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             // 
@@ -142,7 +145,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 16);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(789, 469);
+            this.tabControl1.Size = new System.Drawing.Size(950, 469);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -152,7 +155,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(781, 443);
+            this.tabPage1.Size = new System.Drawing.Size(942, 443);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Data Entry";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -165,7 +168,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox4.Location = new System.Drawing.Point(3, 106);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(775, 334);
+            this.groupBox4.Size = new System.Drawing.Size(936, 334);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Details";
@@ -174,7 +177,7 @@
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.tbTotalAmount);
-            this.groupBox7.Location = new System.Drawing.Point(51, 238);
+            this.groupBox7.Location = new System.Drawing.Point(7, 238);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(282, 63);
             this.groupBox7.TabIndex = 9;
@@ -194,9 +197,9 @@
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.dataGridView2);
-            this.groupBox6.Location = new System.Drawing.Point(389, 45);
+            this.groupBox6.Location = new System.Drawing.Point(342, 45);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(369, 187);
+            this.groupBox6.Size = new System.Drawing.Size(594, 187);
             this.groupBox6.TabIndex = 8;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Previous Charges";
@@ -214,16 +217,18 @@
             this.dataGridView2.Location = new System.Drawing.Point(7, 15);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(356, 164);
+            this.dataGridView2.Size = new System.Drawing.Size(581, 164);
             this.dataGridView2.TabIndex = 2;
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.lblCurrenttotal);
+            this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.dataGridView1);
             this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Location = new System.Drawing.Point(51, 17);
+            this.groupBox5.Location = new System.Drawing.Point(6, 17);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(331, 215);
+            this.groupBox5.Size = new System.Drawing.Size(327, 215);
             this.groupBox5.TabIndex = 7;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Current Charges";
@@ -241,7 +246,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(7, 41);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(318, 165);
+            this.dataGridView1.Size = new System.Drawing.Size(314, 165);
             this.dataGridView1.TabIndex = 1;
             // 
             // button3
@@ -250,12 +255,13 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(97, 23);
             this.button3.TabIndex = 0;
-            this.button3.Text = "Add Transaction";
+            this.button3.Text = "Add &Transaction";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblCustomerID);
             this.groupBox3.Controls.Add(this.tbMonthlyDue);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.tbSQM);
@@ -275,7 +281,7 @@
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(775, 103);
+            this.groupBox3.Size = new System.Drawing.Size(936, 103);
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search";
@@ -382,7 +388,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Cut-off:";
+            this.label2.Text = "&Cut-off:";
             // 
             // tbName
             // 
@@ -410,6 +416,7 @@
             this.cbUnitNo.Size = new System.Drawing.Size(119, 21);
             this.cbUnitNo.TabIndex = 1;
             this.cbUnitNo.SelectedIndexChanged += new System.EventHandler(this.cbUnitNo_SelectedIndexChanged);
+            this.cbUnitNo.SelectedValueChanged += new System.EventHandler(this.cbUnitNo_SelectedValueChanged);
             // 
             // label1
             // 
@@ -418,7 +425,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Unit#:";
+            this.label1.Text = "&Unit#:";
             // 
             // tabPage2
             // 
@@ -452,18 +459,47 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(714, 571);
+            this.button1.Location = new System.Drawing.Point(875, 571);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "&Save";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblCustomerID
+            // 
+            this.lblCustomerID.AutoSize = true;
+            this.lblCustomerID.Location = new System.Drawing.Point(277, 17);
+            this.lblCustomerID.Name = "lblCustomerID";
+            this.lblCustomerID.Size = new System.Drawing.Size(13, 13);
+            this.lblCustomerID.TabIndex = 19;
+            this.lblCustomerID.Text = "0";
+            this.lblCustomerID.Visible = false;
+            // 
+            // lblCurrenttotal
+            // 
+            this.lblCurrenttotal.AutoSize = true;
+            this.lblCurrenttotal.Location = new System.Drawing.Point(252, 20);
+            this.lblCurrenttotal.Name = "lblCurrenttotal";
+            this.lblCurrenttotal.Size = new System.Drawing.Size(28, 13);
+            this.lblCurrenttotal.TabIndex = 20;
+            this.lblCurrenttotal.Text = "0.00";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(186, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Current Total:";
             // 
             // frm_BillingInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 603);
+            this.ClientSize = new System.Drawing.Size(962, 603);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -484,6 +520,7 @@
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -529,5 +566,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbMonthlyDue;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblCustomerID;
+        private System.Windows.Forms.Label lblCurrenttotal;
+        private System.Windows.Forms.Label label11;
     }
 }

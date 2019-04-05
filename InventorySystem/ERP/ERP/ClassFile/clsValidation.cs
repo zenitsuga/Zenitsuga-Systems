@@ -41,6 +41,25 @@ namespace ERP.ClassFile
         }
         #endregion
         #region GeneralValidation
+        public int GetSysID(string Criteria, string TableName)
+        {
+            int ID = 0;
+                
+            try
+            {
+                string Query = "Select sysID from " + TableName + " " + Criteria;
+
+                if (cdt.SelectData(Query).Rows.Count > 0)
+                {
+                    string result = cdt.SelectData(Query).Rows[0]["sysID"].ToString();
+                    ID = isInteger(result) ? int.Parse(result) : 0;
+                }
+            }
+            catch
+            {
+            }
+            return ID;
+        }
         public bool isInteger(string value)
         {
             bool result = false;

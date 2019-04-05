@@ -15,6 +15,7 @@ namespace ERP.CONDO
         public string SelectedTransaction;
         public decimal PriceAmount;
         public int ID;
+        public string ManualNotes;
 
         public frm_TransactionCost()
         {
@@ -46,6 +47,23 @@ namespace ERP.CONDO
                 SelectedTransaction = dataGridView1.SelectedRows[0].Cells["Transaction"].Value.ToString();
                 PriceAmount = !string.IsNullOrEmpty(selectedPrice) ? decimal.Parse(selectedPrice) : decimal.Parse("0.00");
                 ID = int.Parse(dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString());
+                this.Close();
+            }
+        }
+
+        private void insertWithManualPriceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string selectedPrice = "0.00";
+            selectedPrice = dataGridView1.SelectedRows[0].Cells["Amount"].Value.ToString();
+            if (dataGridView1.SelectedRows.Count == 1)
+            {
+                SelectedTransaction = dataGridView1.SelectedRows[0].Cells["Transaction"].Value.ToString();
+                PriceAmount = !string.IsNullOrEmpty(selectedPrice) ? decimal.Parse(selectedPrice) : decimal.Parse("0.00");
+                frm_ZeroAmount za = new frm_ZeroAmount();
+                za.ShowDialog();
+                ID = int.Parse(dataGridView1.SelectedRows[0].Cells["ID"].Value.ToString());
+                PriceAmount = za.AmountEntered;
+                ManualNotes = za.ManualNotes;
                 this.Close();
             }
         }
