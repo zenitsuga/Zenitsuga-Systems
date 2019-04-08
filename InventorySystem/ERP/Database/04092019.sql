@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `tblprocesskeyword` (
   PRIMARY KEY (`sysid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
--- Dumping data for table 0hsoozjazg.tblprocesskeyword: ~0 rows (approximately)
+-- Dumping data for table 0hsoozjazg.tblprocesskeyword: ~1 rows (approximately)
 DELETE FROM `tblprocesskeyword`;
 /*!40000 ALTER TABLE `tblprocesskeyword` DISABLE KEYS */;
 INSERT INTO `tblprocesskeyword` (`sysid`, `KeywordMatch`, `KeywordDetails`, `Sender`, `isEnabled`, `ReceivedDateTime`) VALUES
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `tbl_condo_billinginfo` (
   UNIQUE KEY `PrimaryKey` (`PrimaryKey`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table 0hsoozjazg.tbl_condo_billinginfo: ~2 rows (approximately)
+-- Dumping data for table 0hsoozjazg.tbl_condo_billinginfo: ~1 rows (approximately)
 DELETE FROM `tbl_condo_billinginfo`;
 /*!40000 ALTER TABLE `tbl_condo_billinginfo` DISABLE KEYS */;
 INSERT INTO `tbl_condo_billinginfo` (`sysID`, `PrimaryKey`, `CutoffID`, `UnitNo`, `CustomerID`, `TotalAmountDue`, `PreviousBalanceAsOf`, `LastPaymentEntry`, `Balances`, `CurrentCharges`, `isEnabled`, `isVoid`, `CreatedBy`, `CreatedDate`, `UpdateBy`, `UpdatedDate`, `VoidedBy`, `VoidedDate`, `VoidReason`) VALUES
@@ -190,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `tbl_condo_customerinfo` (
   UNIQUE KEY `PrimaryNames` (`PrimaryNames`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table 0hsoozjazg.tbl_condo_customerinfo: ~3 rows (approximately)
+-- Dumping data for table 0hsoozjazg.tbl_condo_customerinfo: ~2 rows (approximately)
 DELETE FROM `tbl_condo_customerinfo`;
 /*!40000 ALTER TABLE `tbl_condo_customerinfo` DISABLE KEYS */;
 INSERT INTO `tbl_condo_customerinfo` (`sysID`, `PrimaryNames`, `LastName`, `FirstName`, `MiddleName`, `Alias`, `UseAlias`, `ContactNumber`, `UnitNo`, `PhotoPath`, `Notes`, `isTenant`, `CustomerRef`, `isEnabled`, `CreatedBy`, `UpdatedBy`, `DateCreated`, `DateUpdated`) VALUES
@@ -215,7 +215,7 @@ CREATE TABLE IF NOT EXISTS `tbl_condo_cutoffinfo` (
   UNIQUE KEY `PrimaryKey` (`PrimaryKey`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Dumping data for table 0hsoozjazg.tbl_condo_cutoffinfo: ~0 rows (approximately)
+-- Dumping data for table 0hsoozjazg.tbl_condo_cutoffinfo: ~2 rows (approximately)
 DELETE FROM `tbl_condo_cutoffinfo`;
 /*!40000 ALTER TABLE `tbl_condo_cutoffinfo` DISABLE KEYS */;
 INSERT INTO `tbl_condo_cutoffinfo` (`sysID`, `PrimaryKey`, `Year`, `Month`, `BillStart`, `BillEnd`, `isEnabled`, `CreatedBy`, `CreatedDate`, `ModifyBy`, `ModifiedDate`) VALUES
@@ -420,7 +420,7 @@ CREATE TABLE IF NOT EXISTS `tbl_system_userroles` (
   UNIQUE KEY `sysid` (`sysid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table 0hsoozjazg.tbl_system_userroles: ~0 rows (approximately)
+-- Dumping data for table 0hsoozjazg.tbl_system_userroles: ~1 rows (approximately)
 DELETE FROM `tbl_system_userroles`;
 /*!40000 ALTER TABLE `tbl_system_userroles` DISABLE KEYS */;
 INSERT INTO `tbl_system_userroles` (`sysid`, `RoleName`, `Description`, `isEnabled`) VALUES
