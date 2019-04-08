@@ -41,9 +41,12 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblCurrenttotal = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblCustomerID = new System.Windows.Forms.Label();
             this.tbMonthlyDue = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.tbSQM = new System.Windows.Forms.TextBox();
@@ -64,9 +67,14 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            this.lblCustomerID = new System.Windows.Forms.Label();
-            this.lblCurrenttotal = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.tbPrevCharge = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -79,6 +87,10 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -162,6 +174,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.groupBox8);
             this.groupBox4.Controls.Add(this.groupBox7);
             this.groupBox4.Controls.Add(this.groupBox6);
             this.groupBox4.Controls.Add(this.groupBox5);
@@ -233,6 +246,24 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Current Charges";
             // 
+            // lblCurrenttotal
+            // 
+            this.lblCurrenttotal.AutoSize = true;
+            this.lblCurrenttotal.Location = new System.Drawing.Point(252, 20);
+            this.lblCurrenttotal.Name = "lblCurrenttotal";
+            this.lblCurrenttotal.Size = new System.Drawing.Size(28, 13);
+            this.lblCurrenttotal.TabIndex = 20;
+            this.lblCurrenttotal.Text = "0.00";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(186, 20);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(71, 13);
+            this.label11.TabIndex = 21;
+            this.label11.Text = "Current Total:";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -285,6 +316,16 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search";
+            // 
+            // lblCustomerID
+            // 
+            this.lblCustomerID.AutoSize = true;
+            this.lblCustomerID.Location = new System.Drawing.Point(277, 17);
+            this.lblCustomerID.Name = "lblCustomerID";
+            this.lblCustomerID.Size = new System.Drawing.Size(13, 13);
+            this.lblCustomerID.TabIndex = 19;
+            this.lblCustomerID.Text = "0";
+            this.lblCustomerID.Visible = false;
             // 
             // tbMonthlyDue
             // 
@@ -429,10 +470,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel2);
+            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(781, 443);
+            this.tabPage2.Size = new System.Drawing.Size(942, 443);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Statement of Account";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -442,7 +485,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(781, 443);
+            this.tabPage3.Size = new System.Drawing.Size(942, 443);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Payment History";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -451,7 +494,7 @@
             // 
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(781, 443);
+            this.tabPage4.Size = new System.Drawing.Size(942, 443);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Aging Report";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -467,33 +510,80 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lblCustomerID
+            // groupBox8
             // 
-            this.lblCustomerID.AutoSize = true;
-            this.lblCustomerID.Location = new System.Drawing.Point(277, 17);
-            this.lblCustomerID.Name = "lblCustomerID";
-            this.lblCustomerID.Size = new System.Drawing.Size(13, 13);
-            this.lblCustomerID.TabIndex = 19;
-            this.lblCustomerID.Text = "0";
-            this.lblCustomerID.Visible = false;
+            this.groupBox8.Controls.Add(this.tbPrevCharge);
+            this.groupBox8.Location = new System.Drawing.Point(648, 238);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(282, 63);
+            this.groupBox8.TabIndex = 10;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "PREVIOUS CHARGE";
             // 
-            // lblCurrenttotal
+            // tbPrevCharge
             // 
-            this.lblCurrenttotal.AutoSize = true;
-            this.lblCurrenttotal.Location = new System.Drawing.Point(252, 20);
-            this.lblCurrenttotal.Name = "lblCurrenttotal";
-            this.lblCurrenttotal.Size = new System.Drawing.Size(28, 13);
-            this.lblCurrenttotal.TabIndex = 20;
-            this.lblCurrenttotal.Text = "0.00";
+            this.tbPrevCharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPrevCharge.Location = new System.Drawing.Point(7, 19);
+            this.tbPrevCharge.Name = "tbPrevCharge";
+            this.tbPrevCharge.ReadOnly = true;
+            this.tbPrevCharge.Size = new System.Drawing.Size(269, 31);
+            this.tbPrevCharge.TabIndex = 0;
+            this.tbPrevCharge.Text = "0.00";
             // 
-            // label11
+            // panel1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(186, 20);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(71, 13);
-            this.label11.TabIndex = 21;
-            this.label11.Text = "Current Total:";
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(936, 28);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.webBrowser1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 31);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(936, 409);
+            this.panel2.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(7, 8);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(89, 13);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Enter Transcode:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(98, 4);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(309, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(413, 2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Search";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(936, 409);
+            this.webBrowser1.TabIndex = 0;
             // 
             // frm_BillingInfo
             // 
@@ -524,6 +614,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -569,5 +665,13 @@
         private System.Windows.Forms.Label lblCustomerID;
         private System.Windows.Forms.Label lblCurrenttotal;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TextBox tbPrevCharge;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

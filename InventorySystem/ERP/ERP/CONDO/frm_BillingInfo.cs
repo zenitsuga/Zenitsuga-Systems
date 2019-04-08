@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ERP.ClassFile;
+using Microsoft.Reporting.WinForms;
+using iTextSharp.text;
+using System.IO;
+using iTextSharp.text.pdf;
 namespace ERP.CONDO
 {
     public partial class frm_BillingInfo : Form
@@ -48,15 +52,13 @@ namespace ERP.CONDO
 
         private void loadRoomNumber()
         {
-            string QueryRoom = "SELECT ui.UnitName,fi.FloorName,ui.AreaSQM,ui.isMontlyDueComputed,ui.MonthlyDue,ui.TotalDue FROM tbl_condo_unitinfo ui LEFT JOIN tbl_condo_floorinfo fi ON ui.FloorAssociate = fi.sysid WHERE ui.isEnabled = 1  ORDER BY ui.UnitName asc";
+            string QueryRoom = "SELECT ui.sysID as 'ID',ui.UnitName,fi.FloorName,ui.AreaSQM,ui.isMontlyDueComputed,ui.MonthlyDue,ui.TotalDue FROM tbl_condo_unitinfo ui LEFT JOIN tbl_condo_floorinfo fi ON ui.FloorAssociate = fi.sysid WHERE ui.isEnabled = 1  ORDER BY ui.UnitName asc";
             dtRoomInfo = dtrans.SelectData(QueryRoom);
             if (dtRoomInfo.Rows.Count > 0)
             {
-                foreach (DataRow dgr in dtRoomInfo.Rows)
-                {
-                    cbUnitNo.Items.Add(dgr["UnitName"].ToString());
-
-                }
+                cbUnitNo.DataSource = dtRoomInfo;
+                cbUnitNo.ValueMember = "ID";
+                cbUnitNo.DisplayMember = "UnitName";
             }
         }
         private void loadCutoff()
@@ -78,7 +80,7 @@ namespace ERP.CONDO
             loadCutoff();
             TransactionTable();
             dataGridView1.DataSource = dtTransactions;
-            TotalAmount = decimal.Parse("0.00");
+            TotalAmount = decimal.Parse("0.00");            
         }
 
         private void cbUnitNo_SelectedIndexChanged(object sender, EventArgs e)
@@ -95,6 +97,7 @@ namespace ERP.CONDO
                     tbSQM.Text = dtResult.Rows[0]["MonthlyDue"].ToString();
                     tbMonthlyDue.Text = dtResult.Rows[0]["TotalDue"].ToString();
                     PreviousBalance = GetPreviousBalance(lblCustomerID.Text);
+                    tbPrevCharge.Text = PreviousBalance.ToString();
                 }
             }
         }
@@ -115,7 +118,22 @@ namespace ERP.CONDO
                     tbStartBillDate.Text = dvCutoff.ToTable().Rows[0]["BILLSTART"].ToString();
                     tbEndDate.Text = dvCutoff.ToTable().Rows[0]["BILLEND"].ToString();
                     PreviousBalance = GetPreviousBalance(lblCustomerID.Text);
+                    tbPrevCharge.Text = PreviousBalance.ToString();
                 }
+            }
+        }
+
+        private void CheckPreviousCharges(string Query)
+        {
+            try
+            {
+                if(Query.ToUpper() == "ALL")
+                {
+
+                }
+            }
+            catch
+            {
             }
         }
 
@@ -159,6 +177,13 @@ namespace ERP.CONDO
 
         private void button3_Click(object sender, EventArgs e)
         {
+            if (cbCutoff.Text == "" || cbUnitNo.Text == "")
+            {
+                MessageBox.Show("Error: Cannot add transaction. Please select first customer","No Customer Selected",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+
             frm_TransactionCost tc = new frm_TransactionCost();
             tc.ShowDialog();
             string Transaction = string.Empty;
@@ -171,19 +196,23 @@ namespace ERP.CONDO
                 {
                     Amount = tbMonthlyDue.Text;
                     Transaction += " For Month : " + DateTime.Now.ToString("MMMM") + " " + DateTime.Now.ToString("yyyy");
+                    ManualNotes = tc.ManualNotes;
                 }
                 else
                 {
                     Amount = tc.PriceAmount.ToString();
                     Transaction += " : " + DateTime.Now.ToString("MMMM") + " " + DateTime.Now.ToString("yyyy");
+                    ManualNotes = tc.ManualNotes;
+
                 }
-                if (Amount == "0.00")
-                {   
-                    frm_ZeroAmount za = new frm_ZeroAmount();
-                    za.ShowDialog();
-                    Amount = za.AmountEntered.ToString();
-                    ManualNotes = za.ManualNotes;
-                }
+
+                //if (Amount == "0.00")
+                //{   
+                //    frm_ZeroAmount za = new frm_ZeroAmount();
+                //    za.ShowDialog();
+                //    Amount = za.AmountEntered.ToString();
+                //    ManualNotes = za.ManualNotes;
+                //}
 
                 DataRow[] drFind = dtTransactions.Select("Transaction ='" + Transaction + "'");
 
@@ -198,11 +227,12 @@ namespace ERP.CONDO
                 dr["Amount"] = Amount;
                 dr["Transaction"] = Transaction;
                 //if(!string.IsNullOrEmpty(ManualNotes))
-                dr["ManualNotes"] = ManualNotes;
+                dr["ManualNotes"] = string.IsNullOrEmpty(ManualNotes) ? string.Empty:ManualNotes;
 
                 dtTransactions.Rows.Add(dr);
 
             }
+            dataGridView1.DataSource = null;
             dataGridView1.DataSource = dtTransactions;
             dataGridView1.Refresh();
             ComputeTotal();
@@ -223,7 +253,8 @@ namespace ERP.CONDO
             }
             
             lblCurrenttotal.Text = TotalAmount.ToString();
-            tbTotalAmount.Text = TotalAmount.ToString();
+            tbTotalAmount.Text = (Decimal.Parse(TotalAmount.ToString()) + Decimal.Parse(tbPrevCharge.Text)).ToString();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -246,10 +277,8 @@ namespace ERP.CONDO
 
                 if (ResultData == "")
                 {
-                    ResultData = "1";
-                }
-
-                if (cv.isInteger(ResultData))
+                    return 1;
+                }else if (cv.isInteger(ResultData))
                 {
                     return int.Parse(ResultData) + 1;
                 }
@@ -276,11 +305,12 @@ namespace ERP.CONDO
                 if (ResultData == "")
                 {
                     ResultData = "1";
+                    return int.Parse(ResultData);
                 }
 
                 if (cv.isInteger(ResultData))
                 {
-                    return int.Parse(ResultData);    
+                    return int.Parse(ResultData) + 1;    
                 }
             }
             catch(Exception ex)
@@ -308,7 +338,14 @@ namespace ERP.CONDO
             if (dr == DialogResult.Yes)
             {
                 string PrimaryKey = GetLastIDofBilling().ToString("000000000000");
-                string BillingInfoQuery = "Insert into tbl_condo_billinginfo(PrimaryKey,CutoffID,CustomerID,TotalAmountDue,PreviousBalanceAsOf,CurrentCharges)Values('" + PrimaryKey + "'," + cv.isInteger(cv.GetSysID("where PrimaryKey ='" + cbCutoff.Text.ToString() + "'", "tbl_condo_cutoffinfo").ToString()) + "," + lblCustomerID.Text + "," + tbTotalAmount.Text + "," + PreviousBalance + "," + lblCurrenttotal.Text + ")";
+                string checkUnitCutoff = "SELECT * FROM tbl_condo_billinginfo WHERE cutoffID = " + cv.GetSysID("where PrimaryKey ='" + cbCutoff.Text.ToString() + "'", "tbl_condo_cutoffinfo") + " AND unitno = " + cbUnitNo.SelectedValue;
+                bool isUnitCheckAgainstCutoff = dtrans.SelectData(checkUnitCutoff).Rows.Count > 0 ? true : false;
+                if (isUnitCheckAgainstCutoff)
+                {
+                    MessageBox.Show("Error: Cannot save details for this cut-off. Please check", "Cut-off already exists", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string BillingInfoQuery = "Insert into tbl_condo_billinginfo(PrimaryKey,CutoffID,CustomerID,UnitNo,TotalAmountDue,PreviousBalanceAsOf,CurrentCharges,CreatedBy)Values('" + PrimaryKey + "'," + cv.isInteger(cv.GetSysID("where PrimaryKey ='" + cbCutoff.Text.ToString() + "'", "tbl_condo_cutoffinfo").ToString()) + "," + lblCustomerID.Text + "," + cbUnitNo.SelectedValue + "," + tbTotalAmount.Text + "," + PreviousBalance + "," + lblCurrenttotal.Text + "," + UserID + ")";
                 bool isErrorFound = false;
                 if (dtrans.InsertData(BillingInfoQuery))
                 {
@@ -328,7 +365,7 @@ namespace ERP.CONDO
                         {
                             string GetManualNotes = string.IsNullOrEmpty(dgrow.Cells["ManualNotes"].Value.ToString()) ? dgrow.Cells["ManualNotes"].Value.ToString() : string.Empty;
                             string BillingRefID = GetLastIDofBillingDetails(GetSySID).ToString();
-                            string BillingDetailsQuery = "Insert into tbl_condo_billingdetails(PrimaryKey,BillingRefID,BillingDescription,BillingAmount,BillingNotes)values('" + PrimaryKey + "_" + GetSySID + "'," + GetSySID + ",'" + dgrow.Cells["Transaction"].Value.ToString() + "'," + dgrow.Cells["Amount"].Value.ToString() + ",'" + GetManualNotes + "')";
+                            string BillingDetailsQuery = "Insert into tbl_condo_billingdetails(PrimaryKey,BillingRefID,BillingDescription,BillingAmount,BillingNotes,CreatedBy)values('" + PrimaryKey + "_" + BillingRefID + "'," + GetSySID + ",'" + dgrow.Cells["Transaction"].Value.ToString() + "'," + dgrow.Cells["Amount"].Value.ToString() + ",'" + GetManualNotes + "'," + UserID + ")";
                             if (!dtrans.InsertData(BillingDetailsQuery))
                             {
                                 MessageBox.Show("Error: Cannot save billing details. Please check", "Error Saving", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -341,6 +378,9 @@ namespace ERP.CONDO
                     }
                     if(!isErrorFound)
                     MessageBox.Show("Billing information saved", "Done Saving", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TransactionTable();
+                    dataGridView1.DataSource = dtTransactions;
+
                 }
             }
         }
@@ -348,6 +388,155 @@ namespace ERP.CONDO
         private void cbUnitNo_SelectedValueChanged(object sender, EventArgs e)
         {
             dataGridView1.DataSource = null;
+            TransactionTable();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            string file = Environment.CurrentDirectory + "\\CONDO\\Reporting\\SOA.pdf";
+
+            PreparePDF_SOA(file);
+
+            if (this.webBrowser1 != null)
+            {
+                this.webBrowser1.Navigate(file);
+            }
+        }
+
+        private void PreparePDF_SOA(string OutputPath)
+        {
+            try
+            {
+                if (File.Exists(OutputPath))
+                {
+                    File.Delete(OutputPath);
+                }
+
+                Document doc = new Document(PageSize.A4);
+                var output = new FileStream(OutputPath, FileMode.Create);
+                var writer = PdfWriter.GetInstance(doc, output);
+
+                doc.Open();
+
+                //var barcode = iTextSharp.text.Image.GetInstance(Server.MapPath("~/ABsIS_Logo.jpg"));
+                //barcode.SetAbsolutePosition(430, 770);
+                //barcode.ScaleAbsoluteHeight(30);
+                //barcode.ScaleAbsoluteWidth(70);
+                //doc.Add(barcode);
+
+                PdfPTable table1 = new PdfPTable(1);
+                table1.DefaultCell.Border = 0;
+                table1.WidthPercentage = 100;
+
+
+                PdfPCell cell11 = new PdfPCell();
+                cell11.Colspan = 1;
+                cell11.AddElement(new Paragraph("Transaction No."));
+
+                cell11.AddElement(new Paragraph("Thankyou for shoping at ABC traders,your order details are below"));
+
+
+                cell11.VerticalAlignment = Element.ALIGN_LEFT;
+
+                PdfPCell cell12 = new PdfPCell();
+
+
+                cell12.VerticalAlignment = Element.ALIGN_CENTER;
+
+
+                table1.AddCell(cell11);
+
+                table1.AddCell(cell12);
+
+
+                PdfPTable table2 = new PdfPTable(3);
+
+                //One row added
+
+                PdfPCell cell21 = new PdfPCell();
+
+                cell21.AddElement(new Paragraph("Photo Type"));
+
+                PdfPCell cell22 = new PdfPCell();
+
+                cell22.AddElement(new Paragraph("No. of Copies"));
+
+                PdfPCell cell23 = new PdfPCell();
+
+                cell23.AddElement(new Paragraph("Amount"));
+
+
+                table2.AddCell(cell21);
+
+                table2.AddCell(cell22);
+
+                table2.AddCell(cell23);
+
+
+                //New Row Added
+
+                PdfPCell cell31 = new PdfPCell();
+
+                cell31.AddElement(new Paragraph("Safe"));
+
+                cell31.FixedHeight = 300.0f;
+
+                PdfPCell cell32 = new PdfPCell();
+
+                cell32.AddElement(new Paragraph("2"));
+
+                cell32.FixedHeight = 300.0f;
+
+                PdfPCell cell33 = new PdfPCell();
+
+                cell33.AddElement(new Paragraph("20.00 * " + "2" + " = " + (20 * Convert.ToInt32("2")) + ".00"));
+
+                cell33.FixedHeight = 300.0f;
+
+
+
+                table2.AddCell(cell31);
+
+                table2.AddCell(cell32);
+
+                table2.AddCell(cell33);
+
+
+                PdfPCell cell2A = new PdfPCell(table2);
+
+                cell2A.Colspan = 2;
+
+                table1.AddCell(cell2A);
+
+                PdfPCell cell41 = new PdfPCell();
+
+                cell41.AddElement(new Paragraph("Name : " + "ABC"));
+
+                cell41.AddElement(new Paragraph("Advance : " + "advance"));
+
+                cell41.VerticalAlignment = Element.ALIGN_LEFT;
+
+                PdfPCell cell42 = new PdfPCell();
+
+                cell42.AddElement(new Paragraph("Customer ID : " + "011"));
+
+                cell42.AddElement(new Paragraph("Balance : " + "3993"));
+
+                cell42.VerticalAlignment = Element.ALIGN_RIGHT;
+
+
+                table1.AddCell(cell41);
+
+                table1.AddCell(cell42);
+
+
+                doc.Add(table1);
+
+                doc.Close();
+            }
+            catch
+            {
+            }
         }
     }
 }
