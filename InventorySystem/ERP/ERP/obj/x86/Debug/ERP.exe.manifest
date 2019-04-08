@@ -67,14 +67,26 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ERP.exe" size="338944">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="BarcodeLib.dll" size="115712">
+      <assemblyIdentity name="BarcodeLib" version="1.0.0.21" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>OrYUe2WKNMSesHChtBX39PybcMg=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ERP.exe" size="358912">
       <assemblyIdentity name="ERP" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aMkDHGJQbwSb48ZO6m17f8WzaHo=</dsig:DigestValue>
+        <dsig:DigestValue>+bg6Zia2sl6vObdB8DUGFsVq1Mc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -110,7 +122,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>oiCLmq78sOsdlTbzW4Fe6s1R3WA=</dsig:DigestValue>
+        <dsig:DigestValue>mW9z9jdA3ZRuEIiZWYxoa0nvCdI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -67,6 +67,9 @@
     <ManifestKeyFile>ERP_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>C:\Users\bok\Downloads\barcode_src\BarcodeDemo\BarcodeLib.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -302,6 +305,7 @@
     <Content Include="Resources\profile.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\SOA.jpg" />
     <Content Include="Resources\tenant.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

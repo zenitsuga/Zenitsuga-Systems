@@ -10,12 +10,16 @@ using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.Threading;
+using ERP.ClassFile;
+using BarcodeLib;
 
 namespace ERP
 {
     public partial class ViewSOA : Form
     {
+        clsDatabaseTransactions dtrans = new clsDatabaseTransactions();
         public string BillingMonth;
+        public string BillingYear;
 
         public ViewSOA()
         {
@@ -24,30 +28,72 @@ namespace ERP
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DataTable dtBillingTransaction = new DataTable();
             if(string.IsNullOrEmpty(textBox1.Text))
             {
                 MessageBox.Show("Error: Please enter Transaction Code to generated.", "Invalid Transaction Code", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }else{
+                string QueryBilling = "SELECT MONTHNAME(co.BillStart) AS MonthName,co.YEAR,co.BillStart,co.BillEnd, ui.UnitName,bd.BillingAmount,bd.BillingDescription,bd.BillingNotes FROM tbl_condo_billinginfo bi LEFT JOIN tbl_condo_billingdetails bd ON bi.sysID = bd.BillingRefID LEFT JOIN tbl_condo_cutoffinfo co ON bi.CutoffID = co.sysID LEFT JOIN tbl_condo_unitinfo ui ON bi.UnitNo = ui.SysID WHERE bi.PrimaryKey = '"+ textBox1.Text +"' and bi.isEnabled = 1 and bi.isVoid = 0";
+                dtBillingTransaction = dtrans.SelectData(QueryBilling);
+                
+                if (dtBillingTransaction.Rows.Count == 0)
+                {
+                    MessageBox.Show("Error: Please enter Transaction Code to generated.", "No Transaction Code found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 string ClearTextPath = Environment.CurrentDirectory + "\\CONDO\\REPORTING\\SOA_Clear.pdf";
                 webBrowser1.Stop();
 
                 webBrowser1.Navigate("about:blank");
                 while (webBrowser1.ReadyState != WebBrowserReadyState.Complete)
                 {
-                    sApplication.DoEvents();
+                    Application.DoEvents();
                     Thread.Sleep(1000);
                 }
 
+                
                 string OutputPath = Environment.CurrentDirectory + "\\CONDO\\REPORTING\\SOA.pdf";
                 
-                GeneratePDF(OutputPath);
+                GeneratePDF(OutputPath, dtBillingTransaction);
                 
                 if (this.webBrowser1 != null)
                 {
                     this.webBrowser1.Navigate(OutputPath);
                 }
             }
+        }
+
+        private string GenerateBarcode(string BarcodeData)
+        {
+            string result = string.Empty;
+            try
+            {
+                BarcodeLib.Barcode barcode = new BarcodeLib.Barcode()
+                {
+                    IncludeLabel = false,
+                    Alignment = AlignmentPositions.CENTER,
+                    Width = 500,
+                    Height = 150,
+                    RotateFlipType = RotateFlipType.RotateNoneFlipNone,
+                    BackColor = Color.White,
+                    ForeColor = Color.Black,
+                };
+
+                System.Drawing.Image img = barcode.Encode(TYPE.CODE39, BarcodeData);
+                string BarcodePath = Environment.CurrentDirectory + "\\CONDO\\REPORTING\\" + BarcodeData + ".jpg";
+                if (File.Exists(BarcodePath))
+                {
+                    File.Delete(BarcodePath);
+                }
+                img.Save(BarcodePath);
+                result = BarcodePath;
+            }
+            catch
+            {
+            }
+            return result;
         }
 
         private PdfContentByte AddText(string Value,int x,int y,PdfWriter writer)
@@ -65,7 +111,7 @@ namespace ERP
             return pcResult;
         }
 
-        private void GeneratePDF(string OutputPath)
+        private void GeneratePDF(string OutputPath,DataTable dtBillinginfo)
         {
             try
             {
@@ -74,17 +120,22 @@ namespace ERP
                     File.Delete(OutputPath);
                 }
 
+                BillingMonth = dtBillinginfo.Rows[0]["MonthName"].ToString();
+                BillingYear = dtBillinginfo.Rows[0]["YEAR"].ToString();
                 Document doc = new Document(PageSize.A4);
                 var output = new FileStream(OutputPath, FileMode.OpenOrCreate);
                 var writer = PdfWriter.GetInstance(doc, output);
 
                 doc.Open();
 
-                //var barcode = iTextSharp.text.Image.GetInstance(Server.MapPath("~/ABsIS_Logo.jpg"));
-                //barcode.SetAbsolutePosition(430, 770);
-                //barcode.ScaleAbsoluteHeight(30);
-                //barcode.ScaleAbsoluteWidth(70);
-                //doc.Add(barcode);
+                string BarcodePath = GenerateBarcode(textBox1.Text);
+
+                var barcode = iTextSharp.text.Image.GetInstance(BarcodePath);
+                barcode.SetAbsolutePosition(8, 770);
+                barcode.ScaleAbsoluteHeight(30);
+                barcode.ScaleAbsoluteWidth(250);
+                doc.Add(barcode);
+                
                 PdfContentByte cb = writer.DirectContent;
 
                 // select the font properties
@@ -98,27 +149,30 @@ namespace ERP
                 cb.ShowTextAligned(1, title, 300, 810, 0);
                 cb.EndText();
 
-
                 PdfPTable table1 = new PdfPTable(1);
                 table1.DefaultCell.Border = 0;
                 table1.WidthPercentage = 100;
 
-
-                PdfPCell cell11 = new PdfPCell();
-                cell11.Colspan = 1;
-                cell11.HorizontalAlignment = Element.ALIGN_RIGHT;
-                cell11.AddElement(new Paragraph(" "));
+                PdfPCell cellBarcode = new PdfPCell();
+                cellBarcode.Colspan = 1;
+                cellBarcode.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cellBarcode.AddElement(new Paragraph(" "));
 
                 AddText("Transaction No.:", 400, 795, writer);
-                AddText(textBox1.Text, 451, 795, writer);
+                AddText(textBox1.Text, 490, 795, writer);
 
                 AddText("Date:", 371, 785, writer);
-                AddText(DateTime.Now.ToString("MMMM dd, yyyy"), 484, 785, writer);
+                AddText(DateTime.Now.ToString("MMMM dd, yyyy"), 490, 785, writer);
 
-                AddText("Month:", 371, 775, writer);
-                AddText(BillingMonth, 484, 775, writer);
+                AddText("Billing Month:", 395, 775, writer);
+                AddText(BillingMonth + " " + BillingYear, 484, 775, writer);
 
-                cell11.AddElement(new Paragraph(" "));
+                cellBarcode.AddElement(new Paragraph(" "));
+
+                PdfPCell cellOwner = new PdfPCell();
+                cellOwner.Colspan = 1;
+                cellOwner.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cellOwner.AddElement(new Paragraph(" "));
 
                 PdfPCell cell12 = new PdfPCell();
 
@@ -126,9 +180,9 @@ namespace ERP
                 cell12.VerticalAlignment = Element.ALIGN_CENTER;
 
 
-                table1.AddCell(cell11);
+                table1.AddCell(cellBarcode);
 
-                table1.AddCell(cell12);
+                table1.AddCell(cellOwner);
 
 
                 PdfPTable table2 = new PdfPTable(3);

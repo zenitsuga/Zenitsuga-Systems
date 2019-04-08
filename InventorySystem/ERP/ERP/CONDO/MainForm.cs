@@ -451,5 +451,11 @@ namespace ERP.CONDO
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_BillingInfo";
         }
+
+        private void toolStripButton12_Click(object sender, EventArgs e)
+        {
+            ViewSOA vs = new ViewSOA();
+            vs.ShowDialog();
+        }
     }
 }
