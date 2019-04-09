@@ -20,6 +20,9 @@ namespace ERP
         clsDatabaseTransactions dtrans = new clsDatabaseTransactions();
         public string BillingMonth;
         public string BillingYear;
+        public string CompanyName;
+        public string UnitNo;
+        public string Owner;
 
         public ViewSOA()
         {
@@ -34,7 +37,8 @@ namespace ERP
                 MessageBox.Show("Error: Please enter Transaction Code to generated.", "Invalid Transaction Code", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }else{
-                string QueryBilling = "SELECT MONTHNAME(co.BillStart) AS MonthName,co.YEAR,co.BillStart,co.BillEnd, ui.UnitName,bd.BillingAmount,bd.BillingDescription,bd.BillingNotes FROM tbl_condo_billinginfo bi LEFT JOIN tbl_condo_billingdetails bd ON bi.sysID = bd.BillingRefID LEFT JOIN tbl_condo_cutoffinfo co ON bi.CutoffID = co.sysID LEFT JOIN tbl_condo_unitinfo ui ON bi.UnitNo = ui.SysID WHERE bi.PrimaryKey = '"+ textBox1.Text +"' and bi.isEnabled = 1 and bi.isVoid = 0";
+                string QueryBilling = "SELECT MONTHNAME(co.BillStart) AS MonthName,co.YEAR,co.BillStart,co.BillEnd, ui.UnitName,CONCAT(ci.LastName,',', ci.FirstName,' ',ci.MiddleName) AS CustomerName,bd.BillingAmount,bd.BillingDescription,bd.BillingNotes FROM tbl_condo_billinginfo bi LEFT JOIN tbl_condo_billingdetails bd ON bi.sysID = bd.BillingRefID LEFT JOIN tbl_condo_cutoffinfo co ON bi.CutoffID = co.sysID LEFT JOIN tbl_condo_unitinfo ui ON bi.UnitNo = ui.SysID LEFT JOIN tbl_condo_customerinfo ci ON bi.CustomerID = ci.sysID WHERE bi.PrimaryKey = '" + textBox1.Text + "' and bi.isEnabled = 1 and bi.isVoid = 0";
+                
                 dtBillingTransaction = dtrans.SelectData(QueryBilling);
                 
                 if (dtBillingTransaction.Rows.Count == 0)
@@ -62,6 +66,7 @@ namespace ERP
                 {
                     this.webBrowser1.Navigate(OutputPath);
                 }
+                
             }
         }
 
@@ -122,6 +127,10 @@ namespace ERP
 
                 BillingMonth = dtBillinginfo.Rows[0]["MonthName"].ToString();
                 BillingYear = dtBillinginfo.Rows[0]["YEAR"].ToString();
+                Owner = dtBillinginfo.Rows[0]["CUSTOMERNAME"].ToString();
+                UnitNo = dtBillinginfo.Rows[0]["UnitName"].ToString();
+
+
                 Document doc = new Document(PageSize.A4);
                 var output = new FileStream(OutputPath, FileMode.OpenOrCreate);
                 var writer = PdfWriter.GetInstance(doc, output);
@@ -171,8 +180,13 @@ namespace ERP
 
                 PdfPCell cellOwner = new PdfPCell();
                 cellOwner.Colspan = 1;
-                cellOwner.HorizontalAlignment = Element.ALIGN_RIGHT;
+                cellOwner.FixedHeight = 50;
+                cellOwner.HorizontalAlignment = Element.ALIGN_LEFT;
                 cellOwner.AddElement(new Paragraph(" "));
+
+                AddText(CompanyName, 100, 755, writer);
+                AddText(Owner, 111, 743, writer);
+                AddText("UNIT:" + UnitNo, 65, 730, writer);
 
                 PdfPCell cell12 = new PdfPCell();
 
@@ -275,6 +289,12 @@ namespace ERP
             {
                 MessageBox.Show("Error:" + ex.Message.ToString(), "Exceptional Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void ViewSOA_Load(object sender, EventArgs e)
+        {
+            clsIni ci = new clsIni(Environment.CurrentDirectory + "\\" + "settings.ini");
+            CompanyName = ci.Read("CompanyName", "SystemSettings"); 
         }
     }
 }

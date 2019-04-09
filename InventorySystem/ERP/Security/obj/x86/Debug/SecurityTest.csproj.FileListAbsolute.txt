@@ -20,3 +20,14 @@ C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\Securit
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\SecurityTest.csproj.GenerateResource.Cache
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.exe
 C:\Users\cbiagtan\Documents\GitHub\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.pdb
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\bin\Debug\Security.exe.config
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\bin\Debug\Security.exe
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\bin\Debug\Security.pdb
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\bin\Debug\SecurityClass.dll
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\bin\Debug\SecurityClass.pdb
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\SecurityTest.csprojResolveAssemblyReference.cache
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.Form1.resources
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.Properties.Resources.resources
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\SecurityTest.csproj.GenerateResource.Cache
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.exe
+E:\Zenitsuga file\Chris SYSTEM\GITHUB\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.pdb
