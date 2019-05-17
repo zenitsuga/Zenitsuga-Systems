@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using ERP.ClassFile;
+using System.Management;
 namespace ERP
 {
     public partial class Form1 : Form
@@ -125,6 +126,37 @@ namespace ERP
             return result;
         }
 
+        public string GetHardDiskSerialNo()
+        {
+            ManagementClass mangnmt = new ManagementClass("Win32_LogicalDisk");
+            ManagementObjectCollection mcol = mangnmt.GetInstances();
+            string result = "";
+            foreach (ManagementObject strt in mcol)
+            {
+                result += Convert.ToString(strt["VolumeSerialNumber"]);
+            }
+            return result;
+        }
+
+        private void CheckHDLicense()
+        {
+            tmrLoading.Stop();
+            string strPath = Environment.CurrentDirectory + "\\settings.ini";
+            if(!File.Exists(strPath))
+            {
+                MessageBox.Show("Error: Cannot continue. Settings not found. Please check","Ini File is missing",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            clsIni ci = new clsIni(strPath);
+            string HDLicense = GetHardDiskSerialNo();
+            string EncryptLicense = cv.Crypt(HDLicense);
+            string LicenseIni = ci.Read("MaskCode", "Licensing");
+            if (EncryptLicense != LicenseIni)
+            {
+                MessageBox.Show("Error: Cannot continue. License not found. Please check not match", "License Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
         private void CheckDatabaseConnection()
         {
             tmrLoading.Stop();
@@ -172,6 +204,10 @@ namespace ERP
                     CheckConfigFile();
                 }
                 LoadImageSplash();
+                if (counterLogin == 40)
+                {
+                    CheckHDLicense();
+                }
                 if (counterLogin == 50)
                 {
                     CheckDatabaseConnection();
