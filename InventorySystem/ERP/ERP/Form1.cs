@@ -105,14 +105,14 @@ namespace ERP
             bool result = false;
             try
             {
-                string SQLSelectSystemInfo = "select Count(*) from tbl_SYSTEM_INFO where isEnabled = 1 and ProgramCode='"+ cv.Crypt(programname) +"' and LicenseCode = '" + cvs.LicenseCode + "' and ActivationCode = '" + cvs.ActivationCode + "'";
+                string SQLSelectSystemInfo = "select Count(*) from tbl_system_info where isEnabled = 1 and ProgramCode='"+ cv.Crypt(programname) +"' and LicenseCode = '" + cvs.LicenseCode + "' and ActivationCode = '" + cvs.ActivationCode + "'";
                 cdt = new clsDatabaseTransactions();
                 DataTable dtResult =cdt.SelectData(SQLSelectSystemInfo); 
                 int RowAffected = dtResult.Rows.Count;
                 RowAffected = RowAffected == 1 ? int.Parse(dtResult.Rows[0][0].ToString()) : 0;
                 if (RowAffected == 0)
                 {
-                    string SQLInsertSystemInfo = "Insert into tbl_SYSTEM_INFO(ProgramCode,LicenseCode,ActivationCode)" + " Values ('" + cv.Crypt(programname) + "','" + cvs.LicenseCode + "','" + cvs.ActivationCode + "')";
+                    string SQLInsertSystemInfo = "Insert into tbl_system_info(ProgramCode,LicenseCode,ActivationCode)" + " Values ('" + cv.Crypt(programname) + "','" + cvs.LicenseCode + "','" + cvs.ActivationCode + "')";
                     result = cdt.InsertData(SQLInsertSystemInfo);
                 }
                 else
@@ -150,12 +150,13 @@ namespace ERP
             clsIni ci = new clsIni(strPath);
             string HDLicense = GetHardDiskSerialNo();
             string EncryptLicense = cv.Crypt(HDLicense);
-            string LicenseIni = ci.Read("MaskCode", "Licensing");
+            string LicenseIni = ci.Read("LicenseCode", "Licensing");
             if (EncryptLicense != LicenseIni)
             {
                 MessageBox.Show("Error: Cannot continue. License not found. Please check not match", "License Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            tmrLoading.Start();
         }
         private void CheckDatabaseConnection()
         {

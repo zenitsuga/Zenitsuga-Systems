@@ -123,7 +123,7 @@ namespace ERP.CONDO
         }
         private void LoadRecords()
         {
-            string QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_CONDO_UnitInfo ui LEFT JOIN tbl_CONDO_FloorInfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_SYSTEM_Users u ON ui.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
+            string QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_condo_unitinfo ui LEFT JOIN tbl_condo_floorinfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_system_users u ON ui.createdby = u.sysID LEFT Join tbl_system_users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
             dataGridView1.DataSource = dtrans.SelectData(QueryRecords);
         }
         private void LoadFloor()

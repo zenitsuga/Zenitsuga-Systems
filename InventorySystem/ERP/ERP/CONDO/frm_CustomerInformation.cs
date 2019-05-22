@@ -103,7 +103,7 @@ namespace ERP.CONDO
             try
             {
                 cbSearchTenant.DataSource = null;
-                string QueryTenant = "SELECT cu.sysid,case when cu.UseAlias = 1 then cu.Alias else CONCAT(cu.LastName , ',' , cu.FirstName , ' ' , cu.MiddleName) end as TenantName, cu.UseAlias from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1 and cu.isTenant = 0;";
+                string QueryTenant = "SELECT cu.sysid,case when cu.UseAlias = 1 then cu.Alias else CONCAT(cu.LastName , ',' , cu.FirstName , ' ' , cu.MiddleName) end as TenantName, cu.UseAlias from tbl_condo_customerinfo cu LEFT JOIN tbl_condo_customerinfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_condo_unitinfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_system_users u ON cu.createdby = u.sysID LEFT Join tbl_system_users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1 and cu.isTenant = 0;";
                 dtSource = new DataTable();
                 dtSource = dtrans.SelectData(QueryTenant);
                 AutoCompleteStringCollection AutoCompleteData = new AutoCompleteStringCollection();

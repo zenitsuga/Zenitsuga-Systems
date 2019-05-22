@@ -223,7 +223,7 @@ namespace ERP.ClassFile
                     ErrMSG = "Invalid User. Please check your Password.";
                     return result;
                 }
-                string QueryCheckUsers = "SELECT * FROM tbl_SYSTEM_Users u LEFT JOIN tbl_SYSTEM_INFO i " +
+                string QueryCheckUsers = "SELECT * FROM tbl_system_users u LEFT JOIN tbl_system_info i " +
                 "ON u.systemreference = i.sysID where u.Username ='" + Username + "' and u.Password='" + 
                 Crypt(Password) + "' and u.isEnabled = 1 and i.ProgramCode='" + Crypt(ProgramName) + "'";
 

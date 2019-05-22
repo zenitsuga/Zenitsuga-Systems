@@ -234,7 +234,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Customer_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,concat(cuo.LastName , ',' , cuo.FirstName , ' ' , cuo.MiddleName) AS 'Owner Info'from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1;";
+            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,concat(cuo.LastName , ',' , cuo.FirstName , ' ' , cuo.MiddleName) AS 'Owner Info'from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_system_users u ON cu.createdby = u.sysID LEFT Join tbl_system_users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1;";
             Modules = "Customer Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_CustomerInfo";
@@ -247,7 +247,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Tenant_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,Concat(cuo.LastName , ',' , cuo.FirstName , ' ' , cuo.MiddleName) AS 'Owner Info' from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_SYSTEM_Users u ON cu.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1 and cu.isTenant = 1;";
+            QueryRecords = "SELECT cu.sysid as 'ID',cu.LastName,cu.FirstName,cu.MiddleName,cu.Alias,cu.UseAlias,cu.Contactnumber,ui.UnitName,cu.Notes,cu.isTenant,Concat(cuo.LastName , ',' , cuo.FirstName , ' ' , cuo.MiddleName) AS 'Owner Info' from tbl_CONDO_CustomerInfo cu LEFT JOIN tbl_CONDO_CustomerInfo cuo ON cu.CustomerRef = cuo.sysid LEFT JOIN tbl_CONDO_UnitInfo ui ON cu.UnitNo = ui.sysid LEFT JOIN tbl_system_users u ON cu.createdby = u.sysID LEFT Join tbl_system_users p ON cu.Updatedby = p.sysid WHERE cu.isEnabled = 1 and cu.isTenant = 1;";
             Modules = "Tenant Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_CustomerInfo";
@@ -260,7 +260,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Unit_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_CONDO_UnitInfo ui LEFT JOIN tbl_CONDO_FloorInfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_SYSTEM_Users u ON ui.createdby = u.sysID LEFT Join tbl_SYSTEM_Users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
+            QueryRecords = "Select ui.SysID as 'ID',ui.UnitName as 'Name',f.FloorName as 'Floor',ui.Description, ui.AreaSQM as 'Size',ui.MonthlyDue as 'Monthly Due per SQM',ui.TotalDue as 'Total Due' from tbl_CONDO_UnitInfo ui LEFT JOIN tbl_CONDO_FloorInfo f ON ui.FloorAssociate = f.sysid LEFT JOIN tbl_system_users u ON ui.createdby = u.sysID LEFT Join tbl_system_users p on ui.Updatedby = p.sysid WHERE ui.isEnabled = 1;";
             Modules = "Unit Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_UnitInfo";
@@ -273,7 +273,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Floor_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "Select f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username as 'CREATED BY',f.DateDefined as 'CREATION DATE',p.Username as 'UPDATED BY',f.LastDateDefined as 'UPDATED DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_SYSTEM_Users u ON f.userID = u.sysID LEFT Join tbl_SYSTEM_Users p on f.LastUpdateUser = p.sysid WHERE f.isEnabled = 1;";
+            QueryRecords = "Select f.sysid as 'ID',f.FloorName as 'FLOOR',f.FloorDescription as 'DESCRIPTION',u.Username as 'CREATED BY',f.DateDefined as 'CREATION DATE',p.Username as 'UPDATED BY',f.LastDateDefined as 'UPDATED DATE' from tbl_CONDO_FloorInfo f LEFT JOIN tbl_system_users u ON f.userID = u.sysID LEFT Join tbl_system_users p on f.LastUpdateUser = p.sysid WHERE f.isEnabled = 1;";
             Modules = "Floor Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_FloorInfo";
