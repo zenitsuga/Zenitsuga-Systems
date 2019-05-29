@@ -22,16 +22,17 @@ namespace ERP.CONDO
             InitializeComponent();
         }
 
-        private void LoadDefault()
+        private void LoadDefault(int Month)
         {
             tbYear.Text = DateTime.Now.Year.ToString();
-            cbMonth.SelectedIndex = DateTime.Now.Month - 1;
-            DateTime startDate = new DateTime(DateTime.Now.Year,DateTime.Now.Month,1);
-            DateTime startDateNextMonth = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1);
+            cbMonth.SelectedIndex = Month - 1;
+            DateTime startDate = new DateTime(DateTime.Now.Year,Month,1);
+            DateTime startDateNextMonth = new DateTime(DateTime.Now.Year, Month + 1, 1);
             int daysLastMonth = startDateNextMonth.AddDays(-1).Day;
-            DateTime endDate = new DateTime(DateTime.Now.Year,DateTime.Now.Month,daysLastMonth);
+            DateTime endDate = new DateTime(DateTime.Now.Year,Month,daysLastMonth);
             dtStart.Value = startDate;
             dtEnd.Value = endDate;
+            dtDueDate.Value = endDate;
         }
 
         private void LoadRecords()
@@ -43,10 +44,27 @@ namespace ERP.CONDO
                 dataGridView1.Refresh();
             }
         }
+        private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                ContextMenu m = new ContextMenu();
+                m.MenuItems.Add(new MenuItem("Delete Records"));
+                
+                int currentMouseOverRow = dataGridView1.HitTest(e.X, e.Y).RowIndex;
 
+                if (currentMouseOverRow >= 0)
+                {
+                    m.MenuItems.Add(new MenuItem(string.Format("Do something to row {0}", currentMouseOverRow.ToString())));
+                }
+
+                m.Show(dataGridView1, new Point(e.X, e.Y));
+
+            }
+        }
         private void frm_CutoffInfo_Load(object sender, EventArgs e)
         {
-            LoadDefault();
+            LoadDefault(DateTime.Now.Month);
             LoadRecords();
         }
 
@@ -74,10 +92,17 @@ namespace ERP.CONDO
             if (drSaveConfirm == DialogResult.Yes)
             {
                 string PrimaryKey = tbYear.Text + ":" + cbMonth.Text; //(int.Parse(cbMonth.SelectedIndex.ToString()) + 1);
-                string QueryInsert = "Insert into tbl_condo_cutoffinfo(PrimaryKey,Year,Month,BillStart,BillEnd,isEnabled,CreatedBy)values('" + PrimaryKey +"'," + tbYear.Text + "," + (cbMonth.SelectedIndex + 1) + ",'" + dtStart.Value.ToString("yyyy-MM-dd 00:00:00") + "','" + dtEnd.Value.ToString("yyyy-MM-dd 00:00:00") + "'," + (cbIsEnabled.Checked ? 1 : 0) + "," + UserID + ")";
+                string QueryInsert = "Insert into tbl_condo_cutoffinfo(PrimaryKey,Year,Month,BillStart,BillEnd,DueDate,isEnabled,CreatedBy)values('" + PrimaryKey + "'," + tbYear.Text + "," + (cbMonth.SelectedIndex + 1) + ",'" + dtStart.Value.ToString("yyyy-MM-dd 00:00:00") + "','" + dtEnd.Value.ToString("yyyy-MM-dd 00:00:00") + "','" + dtDueDate.Value.ToString("yyyy-MM-dd 00:00:00") + "'," + (cbIsEnabled.Checked ? 1 : 0) + "," + UserID + ")";
                 dtrans.InsertData(QueryInsert);
                 LoadRecords();
             }
+        }
+
+        private void cbMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int iMonthNo = Convert.ToDateTime("01-" + cbMonth.Text + "-" + DateTime.Now.Year).Month; 
+            LoadDefault(iMonthNo); 
+            
         }
     }
 }

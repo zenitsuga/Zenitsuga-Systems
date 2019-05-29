@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dtEnd = new System.Windows.Forms.DateTimePicker();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtStart = new System.Windows.Forms.DateTimePicker();
+            this.cbMonth = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.tbYear = new System.Windows.Forms.TextBox();
             this.cbIsEnabled = new System.Windows.Forms.CheckBox();
@@ -40,12 +47,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cbMonth = new System.Windows.Forms.ComboBox();
-            this.dtStart = new System.Windows.Forms.DateTimePicker();
-            this.dtEnd = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
+            this.dtDueDate = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -89,6 +93,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.dtDueDate);
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.dtEnd);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.dtStart);
@@ -106,6 +112,70 @@
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Entry";
+            // 
+            // dtEnd
+            // 
+            this.dtEnd.Location = new System.Drawing.Point(74, 78);
+            this.dtEnd.Name = "dtEnd";
+            this.dtEnd.Size = new System.Drawing.Size(200, 20);
+            this.dtEnd.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(16, 83);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Bill End:";
+            // 
+            // dtStart
+            // 
+            this.dtStart.Location = new System.Drawing.Point(74, 48);
+            this.dtStart.Name = "dtStart";
+            this.dtStart.Size = new System.Drawing.Size(200, 20);
+            this.dtStart.TabIndex = 16;
+            // 
+            // cbMonth
+            // 
+            this.cbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMonth.FormattingEnabled = true;
+            this.cbMonth.Items.AddRange(new object[] {
+            "JANUARY",
+            "FEBRUARY",
+            "MARCH",
+            "APRIL",
+            "MAY",
+            "JUNE",
+            "JULY",
+            "AUGUST",
+            "SEPTEMBER",
+            "OCTOBER",
+            "NOVEMBER",
+            "DECEMBER"});
+            this.cbMonth.Location = new System.Drawing.Point(219, 17);
+            this.cbMonth.Name = "cbMonth";
+            this.cbMonth.Size = new System.Drawing.Size(149, 21);
+            this.cbMonth.TabIndex = 15;
+            this.cbMonth.SelectedIndexChanged += new System.EventHandler(this.cbMonth_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(173, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(40, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Month:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Bill Start:";
             // 
             // button2
             // 
@@ -188,68 +258,26 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label2
+            // dtDueDate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Bill Start:";
+            this.dtDueDate.Location = new System.Drawing.Point(372, 48);
+            this.dtDueDate.Name = "dtDueDate";
+            this.dtDueDate.Size = new System.Drawing.Size(180, 20);
+            this.dtDueDate.TabIndex = 20;
             // 
-            // label5
+            // label7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(173, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Month:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(294, 53);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(72, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Bill Due Date:";
             // 
-            // cbMonth
+            // contextMenuStrip1
             // 
-            this.cbMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMonth.FormattingEnabled = true;
-            this.cbMonth.Items.AddRange(new object[] {
-            "JANUARY",
-            "FEBRUARY",
-            "MARCH",
-            "APRIL",
-            "MAY",
-            "JUNE",
-            "JULY",
-            "AUGUST",
-            "SEPTEMBER",
-            "OCTOBER",
-            "NOVEMBER",
-            "DECEMBER"});
-            this.cbMonth.Location = new System.Drawing.Point(219, 17);
-            this.cbMonth.Name = "cbMonth";
-            this.cbMonth.Size = new System.Drawing.Size(149, 21);
-            this.cbMonth.TabIndex = 15;
-            // 
-            // dtStart
-            // 
-            this.dtStart.Location = new System.Drawing.Point(74, 48);
-            this.dtStart.Name = "dtStart";
-            this.dtStart.Size = new System.Drawing.Size(200, 20);
-            this.dtStart.TabIndex = 16;
-            // 
-            // dtEnd
-            // 
-            this.dtEnd.Location = new System.Drawing.Point(74, 78);
-            this.dtEnd.Name = "dtEnd";
-            this.dtEnd.Size = new System.Drawing.Size(200, 20);
-            this.dtEnd.TabIndex = 18;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 83);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Bill End:";
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // frm_CutoffInfo
             // 
@@ -296,5 +324,8 @@
         private System.Windows.Forms.ComboBox cbMonth;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker dtDueDate;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

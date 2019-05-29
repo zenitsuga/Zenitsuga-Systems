@@ -203,7 +203,6 @@ namespace ERP.CONDO
                     Amount = tc.PriceAmount.ToString();
                     Transaction += " : " + DateTime.Now.ToString("MMMM") + " " + DateTime.Now.ToString("yyyy");
                     ManualNotes = tc.ManualNotes;
-
                 }
 
                 //if (Amount == "0.00")

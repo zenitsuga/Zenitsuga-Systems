@@ -30,3 +30,4 @@ E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x8
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\SecurityTest.csproj.GenerateResource.Cache
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.exe
 E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\Security.pdb
+E:\ZENITSUGA FILES\ZSystem\Zenitsuga-Systems\InventorySystem\ERP\Security\obj\x86\Debug\SecurityTest.csprojResolveAssemblyReference.cache

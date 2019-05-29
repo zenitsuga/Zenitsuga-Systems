@@ -18,8 +18,10 @@ namespace ERP.CONDO
         string QueryRecords = string.Empty;
         string Modules = string.Empty;
         ClassFile.clsDatabaseTransactions cdtrans = new ClassFile.clsDatabaseTransactions();
+        ClassFile.clsValidation cval = new ClassFile.clsValidation();
         string QueryTable = string.Empty;
         DataTable dtSearchResult = new DataTable();
+        string [] MonthName = new string []{"January","February","March","April","May","June","July","August","September","October","November","December"};
 
         public MainForm()
         {
@@ -31,6 +33,94 @@ namespace ERP.CONDO
             sidepanelwidth = panel4.Width;
             splitContainer1.SplitterDistance = 220;
             DateTime dtTest = new DateTime(2019, 3, 30);
+            RefreshDashboard();
+        }
+
+        private void RefreshDashboard()
+        {
+            MonthlyDates(false);
+            MonthlyDates(true);
+            if (lblDueDate.Text == "00-00-0000")
+            {
+                lblNoDueDate.Visible = true;
+                linkLabel1.Visible = true;
+            }
+            else
+            {
+                lblNoDueDate.Visible = false;
+                linkLabel1.Visible = false;
+            }
+        }
+
+        private void MonthlyDates(bool isToday)
+        {
+            DataTable dtGetDateCU = new DataTable();
+
+            DateTime d = monthCalendar1.SelectionRange.Start;
+            string Query = string.Empty;
+
+            if (!isToday)
+            {
+                Query = "SELECT BillStart,BillEnd,DueDate FROM tbl_condo_cutoffinfo WHERE YEAR = " + d.Year + " AND MONTH = " + d.Month;
+                dtGetDateCU = cdtrans.SelectData(Query);
+                int counterCU = dtGetDateCU.Rows.Count * 3;
+                DateTime[] dtDateCU = new DateTime[counterCU];
+                listView1.Items.Clear();
+                if (dtGetDateCU.Rows.Count > 0)
+                {
+                    int cnt = 1; int totalCnt = 0;
+                    foreach (DataRow dr in dtGetDateCU.Rows)
+                    {
+                        DateTime dtBillStart = DateTime.Parse(dr["BillStart"].ToString());
+                        dtDateCU[0 + totalCnt] = dtBillStart;
+                        ListViewItem lvi1 = new ListViewItem(dtBillStart.ToShortDateString());
+                        lvi1.SubItems.Add(MonthName[d.Month - 1] + " Bill Start");
+                        listView1.Items.Add(lvi1);
+                        DateTime dtBillEnd = DateTime.Parse(dr["BillEnd"].ToString());
+                        dtDateCU[1 + totalCnt] = dtBillEnd;
+                        ListViewItem lvi2 = new ListViewItem(dtBillEnd.ToShortDateString());
+                        lvi2.SubItems.Add(MonthName[d.Month - 1] + " Bill End");
+                        listView1.Items.Add(lvi2);
+                        DateTime dtDueDate = DateTime.Parse(dr["DueDate"].ToString());
+                        dtDateCU[2 + totalCnt] = dtDueDate;
+                        ListViewItem lvi3 = new ListViewItem(dtDueDate.ToShortDateString());
+                        lvi3.SubItems.Add(MonthName[d.Month - 1] + " Due Date");
+                        listView1.Items.Add(lvi3);
+                        totalCnt = cnt * 3;
+                        cnt++;
+                    }
+                    monthCalendar1.BoldedDates = dtDateCU;
+                    monthCalendar1.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                Query = "SELECT BillStart,BillEnd,DueDate FROM tbl_condo_cutoffinfo WHERE YEAR = " + DateTime.Now.Year + " AND MONTH = " + DateTime.Now.Month;
+                dtGetDateCU = cdtrans.SelectData(Query);
+                if (dtGetDateCU.Rows.Count > 0)
+                {
+                   string Cutoff = DateTime.Parse(dtGetDateCU.Rows[0]["BillStart"].ToString()).ToShortDateString() + " to " + DateTime.Parse(dtGetDateCU.Rows[0]["BillEnd"].ToString()).ToShortDateString();
+                   lblCoverage.Text = Cutoff;
+                   lblDueDate.Text = DateTime.Parse(dtGetDateCU.Rows[0]["DueDate"].ToString()).ToShortDateString();
+                   BeforeDue.Text = DateTime.Parse(dtGetDateCU.Rows[0]["DueDate"].ToString()).Subtract(DateTime.Today).TotalDays.ToString();
+                   string ReminderDay = cval.GetValueSetting("RemindBeforeDueDate");
+                   if (!string.IsNullOrEmpty(ReminderDay))
+                   {
+                       if (cval.isInteger(ReminderDay))
+                       {
+                           if (int.Parse(ReminderDay) >= int.Parse(BeforeDue.Text))
+                           {
+                               BeforeDue.ForeColor = Color.Red;
+                           }
+                           else
+                           {
+                               BeforeDue.ForeColor = Color.Black;
+                           }
+                       }
+                   }
+                }
+            }
+
             
         }
 
@@ -47,6 +137,7 @@ namespace ERP.CONDO
                 {
                     tabControl1.SelectedTab = tabPage1;
                 }
+                RefreshDashboard();
             }
             else
             {
@@ -284,6 +375,7 @@ namespace ERP.CONDO
             QueryRecords = string.Empty;
             dashboardClick = true;
             tabControl1.SelectedTab = tabPage1;
+            RefreshDashboard();
         }
         //Add Records
         private void button1_Click_1(object sender, EventArgs e)
@@ -415,6 +507,7 @@ namespace ERP.CONDO
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
+            btnViewRecords.Visible = true;
             lblTitle.Text = "BILLING INFORMATION";
             lblDescription.Text = "Configuration for BILLING INFORMATION";
             dashboardClick = false;
@@ -433,7 +526,7 @@ namespace ERP.CONDO
             dashboardClick = false;
             ProcessCode = "Cutoff_Info";
             tabControl1.SelectedTab = tabPage2;
-            QueryRecords = "SELECT co.sysID as 'ID',co.YEAR,co.MONTH,co.BILLSTART,co.BILLEND,CONCAT(cu.LastName,',',cu.FirstName) AS 'CREATED BY',co.CREATEDDATE,CONCAT(cu.LastName,',',cu.FirstName) AS 'MODIFY BY',co.MODIFIEDDATE FROM tbl_condo_cutoffinfo co LEFT JOIN tbl_condo_customerinfo cu ON co.CreatedBy = cu.sysid LEFT JOIN tbl_condo_customerinfo cus ON co.ModifyBy = cus.sysid";
+            QueryRecords = "SELECT co.sysID as 'ID',co.YEAR,co.MONTH,co.BILLSTART,co.BILLEND,co.DUEDATE,CONCAT(cu.LastName,',',cu.FirstName) AS 'CREATED BY',co.CREATEDDATE,CONCAT(cu.LastName,',',cu.FirstName) AS 'MODIFY BY',co.MODIFIEDDATE FROM tbl_condo_cutoffinfo co LEFT JOIN tbl_condo_customerinfo cu ON co.CreatedBy = cu.sysid LEFT JOIN tbl_condo_customerinfo cus ON co.ModifyBy = cus.sysid";
             Modules = "Cut-off Information";
             LoadRecords(QueryRecords, Modules);
             QueryTable = "tbl_CONDO_cutoffInfo";
@@ -456,6 +549,33 @@ namespace ERP.CONDO
         {
             ViewSOA vs = new ViewSOA();
             vs.ShowDialog();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            MonthlyDates(false);
+        }
+
+        private void panel12_DoubleClick(object sender, EventArgs e)
+        {
+            toolStripButton10.PerformClick();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            toolStripButton10.PerformClick();
+        }
+
+        private void lblTitle_TextChanged(object sender, EventArgs e)
+        {
+            if (lblTitle.Text == "BILLING INFORMATION")
+            {
+                btnViewRecords.Visible = true;
+            }
+            else
+            {
+                btnViewRecords.Visible = false;
+            }
         }
     }
 }

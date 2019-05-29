@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
+using System.Data;
 
 namespace ERP.ClassFile
 {
@@ -41,6 +42,26 @@ namespace ERP.ClassFile
         }
         #endregion
         #region GeneralValidation
+
+        public string GetValueSetting(string SettingName)
+        {
+            string result = string.Empty;
+            try
+            {
+                string Query = "Select SettingsValue from tbl_condo_settings where isEnabled = 1 and SettingsName = '" + SettingName + "'";
+                DataTable dtSettings = new DataTable();
+                dtSettings = cdt.SelectData(Query);
+                if (dtSettings.Rows.Count > 0)
+                {
+                    result = dtSettings.Rows[0]["SettingsValue"].ToString();
+                }
+            }
+            catch
+            {
+            }
+            return result;
+        }
+
         public int GetSysID(string Criteria, string TableName)
         {
             int ID = 0;
